@@ -6,21 +6,10 @@ ACCUEIL:
 		- Shop
 		- Build
 --------------------------------------------------------------
-NEWS :
-	- Actualités sur le jeu
-	- Mise à jour
-	- etc.
---------------------------------------------------------------
 INFORMATIONS :
 	- Pokemons
 	- Items
 	- Mode de jeu
---------------------------------------------------------------
-CLASSEMENT :
-	- Par Division (Joueurs)
-	- Nombre de victoire
-	- Meilleur Pokemon
-	- Pokemon les plus utilitsés
 --------------------------------------------------------------
 STATISTIQUES :
 	- Il faut se connecter pour voir ses statistique en partant
