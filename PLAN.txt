@@ -33,7 +33,10 @@ STATISTIQUES :
 --------------------------------------------------------------
 GALERIE DE PHOTOS:
 	- Afficher des photos en combat
-	- Afficher des pokemons
+	- Afficher les pokemons
+	- Afficher un prototype de l'application
+		- Shop 
+		- Menu
 --------------------------------------------------------------
 BASE DE DONNÉES:
 	- JOUEUR
