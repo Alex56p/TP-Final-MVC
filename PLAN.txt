@@ -1,0 +1,94 @@
+ACCUEIL:
+	- Login (En haut) -> Pas obliger de se connecter pour aller sur le site
+	- Présentation du jeu
+	- Jeu en détail :
+		- Partie
+		- Shop
+		- Build
+--------------------------------------------------------------
+NEWS :
+	- Actualités sur le jeu
+	- Mise à jour
+	- etc.
+--------------------------------------------------------------
+INFORMATIONS :
+	- Pokemons
+	- Items
+	- Mode de jeu
+--------------------------------------------------------------
+CLASSEMENT :
+	- Par Division (Joueurs)
+	- Nombre de victoire
+	- Meilleur Pokemon
+	- Pokemon les plus utilitsés
+--------------------------------------------------------------
+STATISTIQUES :
+	- Il faut se connecter pour voir ses statistique en partant
+	- La personne peut rechercher un joueur avec son nom
+		- Affichage de ses pokemons courrants
+		- Affichage du nombre de victoire régulières
+		- Affichage du nombre de victoire en compétition
+		- Afficher la division du joueur
+		- Historique de ses matchs :
+			- Avec combien de pokemon de vivant a-t-il finit
+			- Combien de pokemon il a battue avec un pokemon
+		- Afficher les items qu'il possède
+--------------------------------------------------------------
+GALERIE DE PHOTOS:
+	- Afficher des photos en combat
+	- Afficher des pokemons
+--------------------------------------------------------------
+BASE DE DONNÉES:
+	- JOUEUR
+		- NUM_JOUEUR
+		- NOM_JOUEUR
+		- DIVISION
+		- NOMBRE_VICTOIRE
+		- NOMBRE_PARTIES_JOUÉS
+--------------------------------------------------------------
+	- POKEMONS
+		- NUM_POKEMON
+		- NOM_POKEMON
+		- PHOTO
+		- TYPE
+		- PRIX
+		- ATTAQUE
+		- DEFENSE
+		- VIE
+	- ITEMS
+		- NUM_ITEM
+		- NOM_ITEM
+		- TYPE
+		- EFFET_VIE
+		- EFFET_ATTAQUE
+		- EFFET_DEFENSE
+		- EFFET_MANA
+		- PRIX
+	- ATTAQUES
+		- NUM_ATTAQUE
+		- TYPE
+		- EFFET_VIE
+		- EFFET_DAMAGE
+		- EFFET_MANA
+		- MANA
+		- PRIX
+--------------------------------------------------------------
+	- ACHAT_POKEMON
+		- NUM_ACHAT_POKEMON
+		- NUM_POKEMON
+		- NUM_JOUEUR
+		- LVL
+		- ATTAQUE1
+		- ATTAQUE2
+		- ATTAQUE3
+		- ATTAQUE4
+	- ACHAT_ITEM
+		- NUM_ACHAT_ITEM
+		- NUM_ITEM
+		- NUM_JOUEUR
+	- ACHAT_ATTAQUE
+		- NUM_ACHAT_ATTAQUE
+		- NUM_ATTAQUE
+		- NUM_JOUEUR
+		- NUM_ACHAT_POKEMON
+--------------------------------------------------------------
