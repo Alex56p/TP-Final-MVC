@@ -29,9 +29,6 @@ STATISTIQUES :
 		- Affichage du nombre de victoire régulières
 		- Affichage du nombre de victoire en compétition
 		- Afficher la division du joueur
-		- Historique de ses matchs :
-			- Avec combien de pokemon de vivant a-t-il finit
-			- Combien de pokemon il a battue avec un pokemon
 		- Afficher les items qu'il possède
 --------------------------------------------------------------
 GALERIE DE PHOTOS:
