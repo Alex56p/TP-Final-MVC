@@ -153,6 +153,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Galerie.cshtml" />
+    <Content Include="Views\Home\Pokemons.cshtml" />
+    <Content Include="Views\Home\Items.cshtml" />
+    <Content Include="Views\Home\Attaques.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

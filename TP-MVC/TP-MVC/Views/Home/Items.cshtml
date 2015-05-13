@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Items";
+}
+
+
+
+<div class="container">
+    <h2>Items</h2>
+    <p>Tous les items présents dans le jeu sont présents ici avec leur statistiques:</p>
+    <table class="table">
+        <thead>
+            <tr >
+                <th>#</th>
+                <th>Image</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>1</td>
+                <td><img id="1" class="miniThumbnail" src="@Url.Content("../../Images-Items/PotionVie.png")" /></td>
+                <td>Potion de Vie</td>
+                <td>Vie</td>
+                <td>Restaure 20 pts de vie.</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><img id="1" class="miniThumbnail"  src="@Url.Content("../../Images-Items/PotionMana.png")" /></td>
+                <td>Potion de Mana</td>
+                <td>Mana</td>
+                <td>Restaure 50% de la mana du joueur.</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><img id="1" class="miniThumbnail" src="@Url.Content("../../Images-Items/Protein.png")" /></td>
+                <td>Protéine</td>
+                <td>Attaque</td>
+                <td>Donne 10 Attaque de plus au Pokémon</td>
+                <td>250</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

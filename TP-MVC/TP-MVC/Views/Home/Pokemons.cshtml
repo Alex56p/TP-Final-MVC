@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Pokemons";
+}
+
+
+
+<div class="container">
+    <h2>Pokemons</h2>
+    <p>Tous les pokémons présents dans le jeu sont présents ici avec leur statistiques:</p>
+    <table class="table">
+        <thead>
+            <tr >
+                <th>#</th>
+                <th>Image</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Vie</th>
+                <th>Attaque</th>
+                <th>Defense</th>
+                <th>Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><img id="1" class="miniThumbnail" src="@Url.Content("../../Images-Pokemon/001.png")" /></td>
+                <td>Bulbasaur</td>
+                <td>Herbe</td>
+                <td>50</td>
+                <td>50</td>
+                <td>50</td>
+                <td>5k</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><img id="1" class="miniThumbnail"  src="@Url.Content("../../Images-Pokemon/004.png")" /></td>
+                <td>Charmander</td>
+                <td>Feu</td>
+                <td>50</td>
+                <td>60</td>
+                <td>40</td>
+                <td>5k</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><img id="1" class="miniThumbnail" src="@Url.Content("../../Images-Pokemon/007.png")" /></td>
+                <td>Squirtle</td>
+                <td>Eau</td>
+                <td>60</td>
+                <td>40</td>
+                <td>50</td>
+                <td>5k</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

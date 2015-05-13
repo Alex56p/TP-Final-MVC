@@ -31,5 +31,20 @@ namespace TP_MVC.Controllers
 
             return View();
         }
+
+        public ActionResult Pokemons()
+        {
+            return View();
+        }
+
+        public ActionResult Items()
+        {
+            return View();
+        }
+
+        public ActionResult Attaques()
+        {
+            return View();
+        }
     }
 }

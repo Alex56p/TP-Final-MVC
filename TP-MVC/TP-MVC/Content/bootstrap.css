@@ -223,6 +223,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+tr:nth-child(even) {background: #CCC}
+tr:nth-child(odd) {background: #FFF}
 
 @media print {
   * {
@@ -6821,9 +6823,12 @@ td.visible-print {
   }
 }
 
-.img-logo{
-    width:100%;
-    height:200px;
-    text-align:center;
-    color:red;
+.logo{
+    background:url(http://localhost:1240/Images/pokemon-header.png);
+    background-size: auto;
+}
+
+.miniThumbnail{
+    width:64px;
+    height:64px;
 }
