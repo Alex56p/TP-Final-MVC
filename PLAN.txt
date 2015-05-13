@@ -31,9 +31,11 @@ BASE DE DONNÉES:
 	- JOUEUR
 		- NUM_JOUEUR
 		- NOM_JOUEUR
+		- MOT_PASSE
 		- DIVISION
 		- NOMBRE_VICTOIRE
 		- NOMBRE_PARTIES_JOUÉS
+		- EXPERIENCE
 --------------------------------------------------------------
 	- POKEMONS
 		- NUM_POKEMON
@@ -44,17 +46,16 @@ BASE DE DONNÉES:
 		- ATTAQUE
 		- DEFENSE
 		- VIE
+		- ATTAQUE_DEFAUT
 	- ITEMS
 		- NUM_ITEM
 		- NOM_ITEM
+		- DESCRIPTION
 		- TYPE
-		- EFFET_VIE
-		- EFFET_ATTAQUE
-		- EFFET_DEFENSE
-		- EFFET_MANA
 		- PRIX
 	- ATTAQUES
 		- NUM_ATTAQUE
+		- NOM_ATTAQUE
 		- TYPE
 		- EFFET_VIE
 		- EFFET_DAMAGE
@@ -75,9 +76,4 @@ BASE DE DONNÉES:
 		- NUM_ACHAT_ITEM
 		- NUM_ITEM
 		- NUM_JOUEUR
-	- ACHAT_ATTAQUE
-		- NUM_ACHAT_ATTAQUE
-		- NUM_ATTAQUE
-		- NUM_JOUEUR
-		- NUM_ACHAT_POKEMON
 --------------------------------------------------------------
