@@ -1,33 +1,35 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
+<img id="img-logo" alt="Logo" src="@Url.Content("../../Images/pokemon-header.jpg")" />
 <div class="jumbotron">
     <h1>Nom de l'application</h1>
-    <p class="lead">Le jeu "" est un jeu de combat sur une plateforme. Il ressemble beaucoup à Pokemon Stadium, mais avec quelques éléments qui difère.</p>
-    <p class="lead">Le but du jeu est de battre tous les Pokémons de l'autre joueur. Pour ce faire, nous devez mettre sur le jeu un Pokémon à la fois.
+    <p class="lead">Le jeu "" est un jeu de combat sur une plateforme. Il ressemble beaucoup à Pokemon Stadium, mais avec quelques éléments qui diffèrent.</p>
+    <p class="lead">Le but du jeu est de battre tous les Pokémons de l'autre joueur. Pour ce faire, vous devez mettre sur le jeu un Pokémon à la fois.
     Chaque Pokémons peut avoir jusqu`à 4 attaques. C'est vous qui décidez quelles attaques vous voulez sur votre Pokémon.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Pour débuter</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            L'univers de notre jeu comprend plusieurs informations nécessaires à la bonne compréhension du système de combat. 
+            Sur cette page, vous pourrez apprendre sur les différents Pokémons, les différents items et sur les modes de jeu disponibles.
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" href="#">Informations&raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Statistiques</h2>
+        <p>
+            Si vous avez un compte, vous pourrez voir vos statistiques de jeu.
+            Si vous n'avez pas encore de compte pour notre jeu, il est possible de rechercher un joueur 
+            par son nom pour voir ses statisques comme ses Pokémons courants, son nombre de victoires, sa division et etc.
+        </p>
+        <p><a class="btn btn-default" href="#">Statistiques &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Galerie</h2>
+        <p>Dans cette section, vous pourrez admirer de multiples photos de notre application, comme les différents pokémons et des captures d'écran du jeu en action!</p>
+        <p><a class="btn btn-default" href="@Url.Action("Galerie")">Galerie &raquo;</a></p>
     </div>
 </div>

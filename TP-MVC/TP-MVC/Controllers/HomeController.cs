@@ -13,6 +13,11 @@ namespace TP_MVC.Controllers
             return View();
         }
 
+        public ActionResult Galerie()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

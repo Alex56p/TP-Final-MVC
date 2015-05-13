@@ -6005,6 +6005,8 @@ body.modal-open,
 
 .carousel {
   position: relative;
+  width:100%;
+  height:100%;
 }
 
 .carousel-inner {
@@ -6012,6 +6014,10 @@ body.modal-open,
   width: 100%;
   overflow: hidden;
 }
+
+.carousel-inner .item img{
+   margin:0 auto; 
+  }  
 
 .carousel-inner > .item {
   position: relative;
@@ -6813,4 +6819,11 @@ td.visible-print {
   td.hidden-print {
     display: none !important;
   }
+}
+
+.img-logo{
+    width:100%;
+    height:200px;
+    text-align:center;
+    color:red;
 }
