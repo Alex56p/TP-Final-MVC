@@ -159,6 +159,8 @@
     <Content Include="Views\Home\Pokemons.cshtml" />
     <Content Include="Views\Home\Items.cshtml" />
     <Content Include="Views\Home\Attaques.cshtml" />
+    <Content Include="Views\Home\Inscription.cshtml" />
+    <Content Include="Views\Home\Statistiques.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

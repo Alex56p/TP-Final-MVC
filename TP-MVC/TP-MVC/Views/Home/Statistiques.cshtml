@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "Statistiques";
+}
+
+<h2>Statistiques</h2>
+
+<div class="Profile">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
+                <img id="img_profile" class="img-circle" src="https://lh3.googleusercontent.com/-KsUBA6WF_3s/AAAAAAAAAAI/AAAAAAAAALY/a_RHcBx0KYM/photo.jpg">
+            </div>
+            <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
+                <h2>Username</h2><br>
+                <table class="table table-user-information">
+                    <tbody>
+                        <tr>
+                            <td>Division:</td>
+                            <td>Diamant</td>
+                        </tr>
+                        <tr>
+                            <td>Nombre de pokémons:</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>Victoires:</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>Parties jouées:</td>
+                            <td>5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <h2>Pokémons</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Niveau</th>
+                <th>Image</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Vie</th>
+                <th>Attaque</th>
+                <th>Defense</th>
+                <th>Attaque 1</th>
+                <th>Attaque 2</th>
+                <th>Attaque 3</th>
+                <th>Attaque 4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><img id="1" class="pokThumbnail" src="@Url.Content("../../Images-Pokemon/001.png")" /></td>
+                <td>Bulbasaur</td>
+                <td>Herbe</td>
+                <td>50</td>
+                <td>50</td>
+                <td>50</td>
+                <td>Vine Whip</td>
+                <td>Tackle</td>
+                <td>Leech Seed</td>
+                <td>Growth</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><img id="1" class="pokThumbnail" src="@Url.Content("../../Images-Pokemon/004.png")" /></td>
+                <td>Charmander</td>
+                <td>Feu</td>
+                <td>50</td>
+                <td>60</td>
+                <td>40</td>
+                <td>Tackle</td>
+                <td>Ember</td>
+                <td>Leer</td>
+                <td>Metal Claw</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><img id="1" class="pokThumbnail" src="@Url.Content("../../Images-Pokemon/007.png")" /></td>
+                <td>Squirtle</td>
+                <td>Eau</td>
+                <td>60</td>
+                <td>40</td>
+                <td>50</td>
+                <td>Headbutt</td>
+                <td>Witrdraw</td>
+                <td>Bubble</td>
+                <td>Bite</td>            
+            </tr>
+        </tbody>
+    </table>
+    <hr />
+
+    <h2>Items</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Quantité</th>
+                <th>Image</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>1</td>
+                <td><img id="1" class="itemThumbnail" src="@Url.Content("../../Images-Items/PotionVie.png")" /></td>
+                <td>Potion de Vie</td>
+                <td>Vie</td>
+                <td>Restaure 20 pts de vie.</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><img id="1" class="itemThumbnail" src="@Url.Content("../../Images-Items/PotionMana.png")" /></td>
+                <td>Potion de Mana</td>
+                <td>Mana</td>
+                <td>Restaure 50% de la mana du joueur.</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><img id="1" class="itemThumbnail" src="@Url.Content("../../Images-Items/Protein.png")" /></td>
+                <td>Protéine</td>
+                <td>Attaque</td>
+                <td>Donne 10 Attaque de plus au Pokémon</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

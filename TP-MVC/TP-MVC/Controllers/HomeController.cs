@@ -46,5 +46,15 @@ namespace TP_MVC.Controllers
         {
             return View();
         }
+
+        public ActionResult Inscription()
+        {
+            return View();
+        }
+
+        public ActionResult Statistiques()
+        {
+            return View();
+        }
     }
 }

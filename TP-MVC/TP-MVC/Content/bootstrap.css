@@ -6828,7 +6828,39 @@ td.visible-print {
     background-size: auto;
 }
 
-.miniThumbnail{
+.pokThumbnail{
     width:64px;
     height:64px;
+}
+
+.itemThumbnail{
+    width:48px;
+    height:48px;
+}
+
+.Profile{
+border-radius: 1px 1px 1px 1px;
+box-shadow: 3px 3px 5px 5px #CCCCCC;
+width:auto;
+height: auto;
+padding: 5px;
+position:relative;
+}
+
+.profile-right{
+    float:right;
+    position:relative;
+    top:5%;
+    right:20%;
+}
+
+.right{
+    float:right;
+}
+.left{
+    float:left;
+}
+#img_profile{
+    height:254px;
+    width:254px;
 }
