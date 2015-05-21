@@ -4,35 +4,43 @@
 }
 
 
-
-<div class="container">
-    <h2>Attaques</h2>
-    <p>Toutes les attaques présentes dans le jeu sont présentes ici avec leur statistiques:</p>
-    <table class="table">
-        <thead>
-            <tr >
-                <th>#</th>
-                <th>Nom</th>
-                <th>Type</th>
-                <th>Dommage</th>
-                <th>Vie</th>
-                <th>Mana</th>
-                <th>Prix</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (Attaque a in ViewBag.Attaques)
-            {
-                <tr>
-                    <td>@a.Id</td>
-                    <td>@a.NOM_ATTAQUE</td>
-                    <td>@a.TYPE</td>
-                    <td>@a.VIE_ENNEMI</td>
-                    <td>@a.VIE_ALIER</td>
-                    <td>@a.MANA</td>
-                    <td>@a.PRIX</td>
+@using (Html.BeginForm())
+{
+    <div class="container">
+        <h2>Attaques</h2>
+        <div>
+            @Html.Label("Rechercher une Attaque par son nom : ")
+            @Html.TextBox("TB_RechercherAttaque")
+            <button type="submit" name="Submit" value="Rechercher">Rechercher</button>
+            <button type="submit" name="Submit" value="Tout">Rechercher tout</button>
+        </div>
+        <p>Toutes les attaques présentes dans le jeu sont présentes ici avec leur statistiques:</p>
+        <table class="table">
+            <thead>
+                <tr >
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Type</th>
+                    <th>Dommage</th>
+                    <th>Vie</th>
+                    <th>Mana</th>
+                    <th>Prix</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+                @foreach (Attaque a in ViewBag.Attaques)
+                {
+                    <tr>
+                        <td>@a.Id</td>
+                        <td>@a.NOM_ATTAQUE</td>
+                        <td>@a.TYPE</td>
+                        <td>@a.VIE_ENNEMI</td>
+                        <td>@a.VIE_ALIER</td>
+                        <td>@a.MANA</td>
+                        <td>@a.PRIX</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

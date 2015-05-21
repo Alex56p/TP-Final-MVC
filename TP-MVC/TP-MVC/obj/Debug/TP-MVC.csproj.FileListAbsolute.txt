@@ -102,3 +102,4 @@ C:\Users\Antho\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\bin\fr\EntityFramework.resourc
 C:\Users\Alexis\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\bin\EntityFramework.dll
 C:\Users\Alexis\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\bin\EntityFramework.xml
 C:\Users\Alexis\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\bin\fr\EntityFramework.resources.dll
+C:\Users\Alexis\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\obj\Debug\TP-MVC.csprojResolveAssemblyReference.cache
