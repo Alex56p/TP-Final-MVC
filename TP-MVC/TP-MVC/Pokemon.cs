@@ -22,6 +22,7 @@ namespace TP_MVC
         public int VIE { get; set; }
         public int ATTAQUE { get; set; }
         public int DEFENSE { get; set; }
+        public Nullable<int> VITESSE { get; set; }
         public Nullable<int> ATTAQUE_DEFAUT { get; set; }
     }
 }

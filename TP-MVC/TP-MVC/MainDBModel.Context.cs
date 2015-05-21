@@ -29,7 +29,7 @@ namespace TP_MVC
         public DbSet<ACHAT_POKEMON> ACHAT_POKEMON { get; set; }
         public DbSet<Attaque> Attaques { get; set; }
         public DbSet<Item> Items { get; set; }
-        public DbSet<Pokemon> Pokemons { get; set; }
         public DbSet<Joueur> Joueurs { get; set; }
+        public DbSet<Pokemon> Pokemons { get; set; }
     }
 }

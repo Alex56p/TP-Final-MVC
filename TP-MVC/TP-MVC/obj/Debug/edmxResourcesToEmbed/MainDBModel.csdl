@@ -38,10 +38,23 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IMAGE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="NOM_ITEM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PRIX" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Joueur">
+    <Key>
+      <PropertyRef Name="ALIAS" />
+    </Key>
+    <Property Name="ALIAS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MOT_PASSE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DIVISION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_VICTOIRE" Type="Int32" />
+    <Property Name="NOMBRE_PARTIES_JOUES" Type="Int32" />
+    <Property Name="EXPERIENCE" Type="Int32" />
   </EntityType>
   <EntityType Name="Pokemon">
     <Key>
@@ -55,28 +68,15 @@
     <Property Name="VIE" Type="Int32" Nullable="false" />
     <Property Name="ATTAQUE" Type="Int32" Nullable="false" />
     <Property Name="DEFENSE" Type="Int32" Nullable="false" />
+    <Property Name="VITESSE" Type="Int32" />
     <Property Name="ATTAQUE_DEFAUT" Type="Int32" />
-  </EntityType>
-  <EntityType Name="Joueur">
-    <Key>
-      <PropertyRef Name="ALIAS" />
-      <PropertyRef Name="MOT_PASSE" />
-      <PropertyRef Name="DIVISION" />
-    </Key>
-    <Property Name="ALIAS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="MOT_PASSE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="DIVISION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="NOMBRE_VICTOIRE" Type="Int32" />
-    <Property Name="NOMBRE_PARTIES_JOUES" Type="Int32" />
-    <Property Name="EXPERIENCE" Type="Int32" />
   </EntityType>
   <EntityContainer Name="MainBDEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Achat_Items" EntityType="Self.Achat_Items" />
     <EntitySet Name="ACHAT_POKEMON" EntityType="Self.ACHAT_POKEMON" />
     <EntitySet Name="Attaques" EntityType="Self.Attaque" />
     <EntitySet Name="Items" EntityType="Self.Item" />
-    <EntitySet Name="Pokemons" EntityType="Self.Pokemon" />
     <EntitySet Name="Joueurs" EntityType="Self.Joueur" />
+    <EntitySet Name="Pokemons" EntityType="Self.Pokemon" />
   </EntityContainer>
 </Schema>

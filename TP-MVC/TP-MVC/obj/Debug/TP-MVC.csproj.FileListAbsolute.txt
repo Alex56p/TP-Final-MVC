@@ -61,7 +61,6 @@ C:\Users\Alexis\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\bin\fr\System.Web.Razor.resou
 C:\Users\Alexis\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\bin\fr\System.Web.WebPages.resources.dll
 C:\Users\Alexis\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\bin\fr\System.Web.WebPages.Deployment.resources.dll
 C:\Users\Alexis\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\bin\fr\System.Web.WebPages.Razor.resources.dll
-C:\Users\Alexis\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\obj\Debug\TP-MVC.csprojResolveAssemblyReference.cache
 C:\Users\Alexis\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\obj\Debug\TP-MVC.dll
 C:\Users\Alexis\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\obj\Debug\TP-MVC.pdb
 C:\Users\Antho\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\bin\TP-MVC.dll.config

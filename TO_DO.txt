@@ -1,11 +1,9 @@
 TO DO LIST:
 
 Pokemon:
--Afficher la vitesse des pokémons *
 -*Rechercher un Pokemon
 
 Items:
--Afficher les images des items**
 -*Rechercher un Item
 
 Statistiques:

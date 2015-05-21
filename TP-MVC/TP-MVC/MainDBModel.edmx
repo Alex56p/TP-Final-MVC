@@ -43,18 +43,15 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IMAGE" Type="varchar" MaxLength="50" />
           <Property Name="NOM_ITEM" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="TYPE" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="PRIX" Type="int" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'C:\USERS\ANTHO\DESKTOP\TP-FINAL-MVC\TP-MVC\TP-MVC\APP_DATA\MAINBD.MDF.dbo.Joueurs' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="Joueurs">
           <Key>
             <PropertyRef Name="ALIAS" />
-            <PropertyRef Name="MOT_PASSE" />
-            <PropertyRef Name="DIVISION" />
           </Key>
           <Property Name="ALIAS" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="MOT_PASSE" Type="varchar" MaxLength="100" Nullable="false" />
@@ -76,6 +73,7 @@ avertissement 6002: La table/vue 'C:\USERS\ANTHO\DESKTOP\TP-FINAL-MVC\TP-MVC\TP-
           <Property Name="VIE" Type="int" Nullable="false" />
           <Property Name="ATTAQUE" Type="int" Nullable="false" />
           <Property Name="DEFENSE" Type="int" Nullable="false" />
+          <Property Name="VITESSE" Type="int" />
           <Property Name="ATTAQUE_DEFAUT" Type="int" />
         </EntityType>
         <EntityContainer Name="MainBDModelStoreContainer">
@@ -83,18 +81,8 @@ avertissement 6002: La table/vue 'C:\USERS\ANTHO\DESKTOP\TP-FINAL-MVC\TP-MVC\TP-
           <EntitySet Name="ACHAT_POKEMON" EntityType="Self.ACHAT_POKEMON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Attaques" EntityType="Self.Attaques" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Joueurs" EntityType="Self.Joueurs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pokemons" EntityType="Self.Pokemons" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Joueurs" EntityType="Self.Joueurs" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Joueurs].[ALIAS] AS [ALIAS], 
-[Joueurs].[MOT_PASSE] AS [MOT_PASSE], 
-[Joueurs].[DIVISION] AS [DIVISION], 
-[Joueurs].[EMAIL] AS [EMAIL], 
-[Joueurs].[NOMBRE_VICTOIRE] AS [NOMBRE_VICTOIRE], 
-[Joueurs].[NOMBRE_PARTIES_JOUES] AS [NOMBRE_PARTIES_JOUES], 
-[Joueurs].[EXPERIENCE] AS [EXPERIENCE]
-FROM [dbo].[Joueurs] AS [Joueurs]</DefiningQuery>
-          </EntitySet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -139,10 +127,23 @@ FROM [dbo].[Joueurs] AS [Joueurs]</DefiningQuery>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IMAGE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="NOM_ITEM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PRIX" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Joueur">
+          <Key>
+            <PropertyRef Name="ALIAS" />
+          </Key>
+          <Property Name="ALIAS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MOT_PASSE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DIVISION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_VICTOIRE" Type="Int32" />
+          <Property Name="NOMBRE_PARTIES_JOUES" Type="Int32" />
+          <Property Name="EXPERIENCE" Type="Int32" />
         </EntityType>
         <EntityType Name="Pokemon">
           <Key>
@@ -156,29 +157,16 @@ FROM [dbo].[Joueurs] AS [Joueurs]</DefiningQuery>
           <Property Name="VIE" Type="Int32" Nullable="false" />
           <Property Name="ATTAQUE" Type="Int32" Nullable="false" />
           <Property Name="DEFENSE" Type="Int32" Nullable="false" />
+          <Property Name="VITESSE" Type="Int32" />
           <Property Name="ATTAQUE_DEFAUT" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Joueur">
-          <Key>
-            <PropertyRef Name="ALIAS" />
-            <PropertyRef Name="MOT_PASSE" />
-            <PropertyRef Name="DIVISION" />
-          </Key>
-          <Property Name="ALIAS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MOT_PASSE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DIVISION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="NOMBRE_VICTOIRE" Type="Int32" />
-          <Property Name="NOMBRE_PARTIES_JOUES" Type="Int32" />
-          <Property Name="EXPERIENCE" Type="Int32" />
         </EntityType>
         <EntityContainer Name="MainBDEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Achat_Items" EntityType="Self.Achat_Items" />
           <EntitySet Name="ACHAT_POKEMON" EntityType="Self.ACHAT_POKEMON" />
           <EntitySet Name="Attaques" EntityType="Self.Attaque" />
           <EntitySet Name="Items" EntityType="Self.Item" />
-          <EntitySet Name="Pokemons" EntityType="Self.Pokemon" />
           <EntitySet Name="Joueurs" EntityType="Self.Joueur" />
+          <EntitySet Name="Pokemons" EntityType="Self.Pokemon" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -226,10 +214,24 @@ FROM [dbo].[Joueurs] AS [Joueurs]</DefiningQuery>
             <EntityTypeMapping TypeName="MainBDModel.Item">
               <MappingFragment StoreEntitySet="Items">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
                 <ScalarProperty Name="NOM_ITEM" ColumnName="NOM_ITEM" />
                 <ScalarProperty Name="TYPE" ColumnName="TYPE" />
                 <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
                 <ScalarProperty Name="PRIX" ColumnName="PRIX" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Joueurs">
+            <EntityTypeMapping TypeName="MainBDModel.Joueur">
+              <MappingFragment StoreEntitySet="Joueurs">
+                <ScalarProperty Name="ALIAS" ColumnName="ALIAS" />
+                <ScalarProperty Name="MOT_PASSE" ColumnName="MOT_PASSE" />
+                <ScalarProperty Name="DIVISION" ColumnName="DIVISION" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="NOMBRE_VICTOIRE" ColumnName="NOMBRE_VICTOIRE" />
+                <ScalarProperty Name="NOMBRE_PARTIES_JOUES" ColumnName="NOMBRE_PARTIES_JOUES" />
+                <ScalarProperty Name="EXPERIENCE" ColumnName="EXPERIENCE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -244,20 +246,8 @@ FROM [dbo].[Joueurs] AS [Joueurs]</DefiningQuery>
                 <ScalarProperty Name="VIE" ColumnName="VIE" />
                 <ScalarProperty Name="ATTAQUE" ColumnName="ATTAQUE" />
                 <ScalarProperty Name="DEFENSE" ColumnName="DEFENSE" />
+                <ScalarProperty Name="VITESSE" ColumnName="VITESSE" />
                 <ScalarProperty Name="ATTAQUE_DEFAUT" ColumnName="ATTAQUE_DEFAUT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Joueurs">
-            <EntityTypeMapping TypeName="MainBDModel.Joueur">
-              <MappingFragment StoreEntitySet="Joueurs">
-                <ScalarProperty Name="ALIAS" ColumnName="ALIAS" />
-                <ScalarProperty Name="MOT_PASSE" ColumnName="MOT_PASSE" />
-                <ScalarProperty Name="DIVISION" ColumnName="DIVISION" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="NOMBRE_VICTOIRE" ColumnName="NOMBRE_VICTOIRE" />
-                <ScalarProperty Name="NOMBRE_PARTIES_JOUES" ColumnName="NOMBRE_PARTIES_JOUES" />
-                <ScalarProperty Name="EXPERIENCE" ColumnName="EXPERIENCE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

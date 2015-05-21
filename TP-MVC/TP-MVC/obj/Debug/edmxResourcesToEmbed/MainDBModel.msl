@@ -41,10 +41,24 @@
       <EntityTypeMapping TypeName="MainBDModel.Item">
         <MappingFragment StoreEntitySet="Items">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
           <ScalarProperty Name="NOM_ITEM" ColumnName="NOM_ITEM" />
           <ScalarProperty Name="TYPE" ColumnName="TYPE" />
           <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
           <ScalarProperty Name="PRIX" ColumnName="PRIX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Joueurs">
+      <EntityTypeMapping TypeName="MainBDModel.Joueur">
+        <MappingFragment StoreEntitySet="Joueurs">
+          <ScalarProperty Name="ALIAS" ColumnName="ALIAS" />
+          <ScalarProperty Name="MOT_PASSE" ColumnName="MOT_PASSE" />
+          <ScalarProperty Name="DIVISION" ColumnName="DIVISION" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="NOMBRE_VICTOIRE" ColumnName="NOMBRE_VICTOIRE" />
+          <ScalarProperty Name="NOMBRE_PARTIES_JOUES" ColumnName="NOMBRE_PARTIES_JOUES" />
+          <ScalarProperty Name="EXPERIENCE" ColumnName="EXPERIENCE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -59,20 +73,8 @@
           <ScalarProperty Name="VIE" ColumnName="VIE" />
           <ScalarProperty Name="ATTAQUE" ColumnName="ATTAQUE" />
           <ScalarProperty Name="DEFENSE" ColumnName="DEFENSE" />
+          <ScalarProperty Name="VITESSE" ColumnName="VITESSE" />
           <ScalarProperty Name="ATTAQUE_DEFAUT" ColumnName="ATTAQUE_DEFAUT" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Joueurs">
-      <EntityTypeMapping TypeName="MainBDModel.Joueur">
-        <MappingFragment StoreEntitySet="Joueurs">
-          <ScalarProperty Name="ALIAS" ColumnName="ALIAS" />
-          <ScalarProperty Name="MOT_PASSE" ColumnName="MOT_PASSE" />
-          <ScalarProperty Name="DIVISION" ColumnName="DIVISION" />
-          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-          <ScalarProperty Name="NOMBRE_VICTOIRE" ColumnName="NOMBRE_VICTOIRE" />
-          <ScalarProperty Name="NOMBRE_PARTIES_JOUES" ColumnName="NOMBRE_PARTIES_JOUES" />
-          <ScalarProperty Name="EXPERIENCE" ColumnName="EXPERIENCE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

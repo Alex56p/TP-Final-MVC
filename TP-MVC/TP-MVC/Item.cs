@@ -15,6 +15,7 @@ namespace TP_MVC
     public partial class Item
     {
         public int Id { get; set; }
+        public string IMAGE { get; set; }
         public string NOM_ITEM { get; set; }
         public string TYPE { get; set; }
         public string DESCRIPTION { get; set; }
