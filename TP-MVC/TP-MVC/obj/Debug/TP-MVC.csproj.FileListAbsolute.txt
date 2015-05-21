@@ -97,3 +97,6 @@ C:\Users\Antho\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\bin\fr\System.Web.WebPages.Raz
 C:\Users\Antho\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\obj\Debug\TP-MVC.csprojResolveAssemblyReference.cache
 C:\Users\Antho\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\obj\Debug\TP-MVC.dll
 C:\Users\Antho\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\obj\Debug\TP-MVC.pdb
+C:\Users\Antho\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\bin\EntityFramework.dll
+C:\Users\Antho\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\bin\EntityFramework.xml
+C:\Users\Antho\Desktop\TP-Final-MVC\TP-MVC\TP-MVC\bin\fr\EntityFramework.resources.dll

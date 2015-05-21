@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MainBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Achat_Items">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="NUM_ITEM" Type="Int32" Nullable="false" />
+    <Property Name="ALIAS_JOUEUR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ACHAT_POKEMON">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="NUM_POKEMON" Type="Int32" Nullable="false" />
+    <Property Name="ALIAS_JOUEUR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LVL" Type="Int32" Nullable="false" />
+    <Property Name="ATTAQUE1" Type="Int32" Nullable="false" />
+    <Property Name="ATTAQUE2" Type="Int32" />
+    <Property Name="ATTAQUE3" Type="Int32" />
+    <Property Name="ATTAQUE4" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Attaque">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="NOM_ATTAQUE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VIE_ENNEMI" Type="Int32" />
+    <Property Name="VIE_ALIER" Type="Int32" />
+    <Property Name="MANA" Type="Int32" Nullable="false" />
+    <Property Name="PRIX" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="NOM_ITEM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRIX" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pokemon">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="NOM_POKEMON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PHOTO" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PRIX" Type="Int32" Nullable="false" />
+    <Property Name="VIE" Type="Int32" Nullable="false" />
+    <Property Name="ATTAQUE" Type="Int32" Nullable="false" />
+    <Property Name="DEFENSE" Type="Int32" Nullable="false" />
+    <Property Name="ATTAQUE_DEFAUT" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Joueur">
+    <Key>
+      <PropertyRef Name="ALIAS" />
+      <PropertyRef Name="MOT_PASSE" />
+      <PropertyRef Name="DIVISION" />
+    </Key>
+    <Property Name="ALIAS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MOT_PASSE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DIVISION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_VICTOIRE" Type="Int32" />
+    <Property Name="NOMBRE_PARTIES_JOUES" Type="Int32" />
+    <Property Name="EXPERIENCE" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="MainBDEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Achat_Items" EntityType="Self.Achat_Items" />
+    <EntitySet Name="ACHAT_POKEMON" EntityType="Self.ACHAT_POKEMON" />
+    <EntitySet Name="Attaques" EntityType="Self.Attaque" />
+    <EntitySet Name="Items" EntityType="Self.Item" />
+    <EntitySet Name="Pokemons" EntityType="Self.Pokemon" />
+    <EntitySet Name="Joueurs" EntityType="Self.Joueur" />
+  </EntityContainer>
+</Schema>

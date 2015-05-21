@@ -8,6 +8,7 @@ namespace TP_MVC.Controllers
 {
     public class HomeController : Controller
     {
+        private MainBDEntities Donnees = new MainBDEntities();
         public ActionResult Index()
         {
             return View();
@@ -20,20 +21,23 @@ namespace TP_MVC.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
+            ViewBag.Message = "Your application description page."; 
+            
             return View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
             return View();
         }
 
+        
+
         public ActionResult Pokemons()
         {
+            Pokemon[] pokemons = this.Donnees.Pokemons.ToArray();
+            ViewBag.Pokemons = pokemons;
             return View();
         }
 

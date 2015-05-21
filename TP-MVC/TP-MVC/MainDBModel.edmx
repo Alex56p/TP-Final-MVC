@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MainBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Achat_Items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="NUM_ITEM" Type="int" Nullable="false" />
+          <Property Name="ALIAS_JOUEUR" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ACHAT_POKEMON">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="NUM_POKEMON" Type="int" Nullable="false" />
+          <Property Name="ALIAS_JOUEUR" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LVL" Type="int" Nullable="false" />
+          <Property Name="ATTAQUE1" Type="int" Nullable="false" />
+          <Property Name="ATTAQUE2" Type="int" />
+          <Property Name="ATTAQUE3" Type="int" />
+          <Property Name="ATTAQUE4" Type="int" />
+        </EntityType>
+        <EntityType Name="Attaques">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="NOM_ATTAQUE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TYPE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VIE_ENNEMI" Type="int" />
+          <Property Name="VIE_ALIER" Type="int" />
+          <Property Name="MANA" Type="int" Nullable="false" />
+          <Property Name="PRIX" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="NOM_ITEM" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TYPE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PRIX" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'C:\USERS\ANTHO\DESKTOP\TP-FINAL-MVC\TP-MVC\TP-MVC\APP_DATA\MAINBD.MDF.dbo.Joueurs' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Joueurs">
+          <Key>
+            <PropertyRef Name="ALIAS" />
+            <PropertyRef Name="MOT_PASSE" />
+            <PropertyRef Name="DIVISION" />
+          </Key>
+          <Property Name="ALIAS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MOT_PASSE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DIVISION" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="100" />
+          <Property Name="NOMBRE_VICTOIRE" Type="int" />
+          <Property Name="NOMBRE_PARTIES_JOUES" Type="int" />
+          <Property Name="EXPERIENCE" Type="int" />
+        </EntityType>
+        <EntityType Name="Pokemons">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="NOM_POKEMON" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PHOTO" Type="nvarchar" MaxLength="150" />
+          <Property Name="TYPE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PRIX" Type="int" Nullable="false" />
+          <Property Name="VIE" Type="int" Nullable="false" />
+          <Property Name="ATTAQUE" Type="int" Nullable="false" />
+          <Property Name="DEFENSE" Type="int" Nullable="false" />
+          <Property Name="ATTAQUE_DEFAUT" Type="int" />
+        </EntityType>
+        <EntityContainer Name="MainBDModelStoreContainer">
+          <EntitySet Name="Achat_Items" EntityType="Self.Achat_Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ACHAT_POKEMON" EntityType="Self.ACHAT_POKEMON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attaques" EntityType="Self.Attaques" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pokemons" EntityType="Self.Pokemons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Joueurs" EntityType="Self.Joueurs" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Joueurs].[ALIAS] AS [ALIAS], 
+[Joueurs].[MOT_PASSE] AS [MOT_PASSE], 
+[Joueurs].[DIVISION] AS [DIVISION], 
+[Joueurs].[EMAIL] AS [EMAIL], 
+[Joueurs].[NOMBRE_VICTOIRE] AS [NOMBRE_VICTOIRE], 
+[Joueurs].[NOMBRE_PARTIES_JOUES] AS [NOMBRE_PARTIES_JOUES], 
+[Joueurs].[EXPERIENCE] AS [EXPERIENCE]
+FROM [dbo].[Joueurs] AS [Joueurs]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MainBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Achat_Items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="NUM_ITEM" Type="Int32" Nullable="false" />
+          <Property Name="ALIAS_JOUEUR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ACHAT_POKEMON">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="NUM_POKEMON" Type="Int32" Nullable="false" />
+          <Property Name="ALIAS_JOUEUR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LVL" Type="Int32" Nullable="false" />
+          <Property Name="ATTAQUE1" Type="Int32" Nullable="false" />
+          <Property Name="ATTAQUE2" Type="Int32" />
+          <Property Name="ATTAQUE3" Type="Int32" />
+          <Property Name="ATTAQUE4" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Attaque">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="NOM_ATTAQUE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VIE_ENNEMI" Type="Int32" />
+          <Property Name="VIE_ALIER" Type="Int32" />
+          <Property Name="MANA" Type="Int32" Nullable="false" />
+          <Property Name="PRIX" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="NOM_ITEM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRIX" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pokemon">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="NOM_POKEMON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PHOTO" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PRIX" Type="Int32" Nullable="false" />
+          <Property Name="VIE" Type="Int32" Nullable="false" />
+          <Property Name="ATTAQUE" Type="Int32" Nullable="false" />
+          <Property Name="DEFENSE" Type="Int32" Nullable="false" />
+          <Property Name="ATTAQUE_DEFAUT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Joueur">
+          <Key>
+            <PropertyRef Name="ALIAS" />
+            <PropertyRef Name="MOT_PASSE" />
+            <PropertyRef Name="DIVISION" />
+          </Key>
+          <Property Name="ALIAS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MOT_PASSE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DIVISION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_VICTOIRE" Type="Int32" />
+          <Property Name="NOMBRE_PARTIES_JOUES" Type="Int32" />
+          <Property Name="EXPERIENCE" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="MainBDEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Achat_Items" EntityType="Self.Achat_Items" />
+          <EntitySet Name="ACHAT_POKEMON" EntityType="Self.ACHAT_POKEMON" />
+          <EntitySet Name="Attaques" EntityType="Self.Attaque" />
+          <EntitySet Name="Items" EntityType="Self.Item" />
+          <EntitySet Name="Pokemons" EntityType="Self.Pokemon" />
+          <EntitySet Name="Joueurs" EntityType="Self.Joueur" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MainBDModelStoreContainer" CdmEntityContainer="MainBDEntities">
+          <EntitySetMapping Name="Achat_Items">
+            <EntityTypeMapping TypeName="MainBDModel.Achat_Items">
+              <MappingFragment StoreEntitySet="Achat_Items">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NUM_ITEM" ColumnName="NUM_ITEM" />
+                <ScalarProperty Name="ALIAS_JOUEUR" ColumnName="ALIAS_JOUEUR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACHAT_POKEMON">
+            <EntityTypeMapping TypeName="MainBDModel.ACHAT_POKEMON">
+              <MappingFragment StoreEntitySet="ACHAT_POKEMON">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NUM_POKEMON" ColumnName="NUM_POKEMON" />
+                <ScalarProperty Name="ALIAS_JOUEUR" ColumnName="ALIAS_JOUEUR" />
+                <ScalarProperty Name="LVL" ColumnName="LVL" />
+                <ScalarProperty Name="ATTAQUE1" ColumnName="ATTAQUE1" />
+                <ScalarProperty Name="ATTAQUE2" ColumnName="ATTAQUE2" />
+                <ScalarProperty Name="ATTAQUE3" ColumnName="ATTAQUE3" />
+                <ScalarProperty Name="ATTAQUE4" ColumnName="ATTAQUE4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attaques">
+            <EntityTypeMapping TypeName="MainBDModel.Attaque">
+              <MappingFragment StoreEntitySet="Attaques">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NOM_ATTAQUE" ColumnName="NOM_ATTAQUE" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="VIE_ENNEMI" ColumnName="VIE_ENNEMI" />
+                <ScalarProperty Name="VIE_ALIER" ColumnName="VIE_ALIER" />
+                <ScalarProperty Name="MANA" ColumnName="MANA" />
+                <ScalarProperty Name="PRIX" ColumnName="PRIX" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="MainBDModel.Item">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NOM_ITEM" ColumnName="NOM_ITEM" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="PRIX" ColumnName="PRIX" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pokemons">
+            <EntityTypeMapping TypeName="MainBDModel.Pokemon">
+              <MappingFragment StoreEntitySet="Pokemons">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NOM_POKEMON" ColumnName="NOM_POKEMON" />
+                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="PRIX" ColumnName="PRIX" />
+                <ScalarProperty Name="VIE" ColumnName="VIE" />
+                <ScalarProperty Name="ATTAQUE" ColumnName="ATTAQUE" />
+                <ScalarProperty Name="DEFENSE" ColumnName="DEFENSE" />
+                <ScalarProperty Name="ATTAQUE_DEFAUT" ColumnName="ATTAQUE_DEFAUT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Joueurs">
+            <EntityTypeMapping TypeName="MainBDModel.Joueur">
+              <MappingFragment StoreEntitySet="Joueurs">
+                <ScalarProperty Name="ALIAS" ColumnName="ALIAS" />
+                <ScalarProperty Name="MOT_PASSE" ColumnName="MOT_PASSE" />
+                <ScalarProperty Name="DIVISION" ColumnName="DIVISION" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="NOMBRE_VICTOIRE" ColumnName="NOMBRE_VICTOIRE" />
+                <ScalarProperty Name="NOMBRE_PARTIES_JOUES" ColumnName="NOMBRE_PARTIES_JOUES" />
+                <ScalarProperty Name="EXPERIENCE" ColumnName="EXPERIENCE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

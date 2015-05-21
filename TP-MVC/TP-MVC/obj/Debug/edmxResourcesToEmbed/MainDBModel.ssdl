@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MainBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Achat_Items">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="NUM_ITEM" Type="int" Nullable="false" />
+    <Property Name="ALIAS_JOUEUR" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ACHAT_POKEMON">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="NUM_POKEMON" Type="int" Nullable="false" />
+    <Property Name="ALIAS_JOUEUR" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LVL" Type="int" Nullable="false" />
+    <Property Name="ATTAQUE1" Type="int" Nullable="false" />
+    <Property Name="ATTAQUE2" Type="int" />
+    <Property Name="ATTAQUE3" Type="int" />
+    <Property Name="ATTAQUE4" Type="int" />
+  </EntityType>
+  <EntityType Name="Attaques">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="NOM_ATTAQUE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TYPE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="VIE_ENNEMI" Type="int" />
+    <Property Name="VIE_ALIER" Type="int" />
+    <Property Name="MANA" Type="int" Nullable="false" />
+    <Property Name="PRIX" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="NOM_ITEM" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TYPE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PRIX" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'C:\USERS\ANTHO\DESKTOP\TP-FINAL-MVC\TP-MVC\TP-MVC\APP_DATA\MAINBD.MDF.dbo.Joueurs' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+  <EntityType Name="Joueurs">
+    <Key>
+      <PropertyRef Name="ALIAS" />
+      <PropertyRef Name="MOT_PASSE" />
+      <PropertyRef Name="DIVISION" />
+    </Key>
+    <Property Name="ALIAS" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MOT_PASSE" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DIVISION" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="100" />
+    <Property Name="NOMBRE_VICTOIRE" Type="int" />
+    <Property Name="NOMBRE_PARTIES_JOUES" Type="int" />
+    <Property Name="EXPERIENCE" Type="int" />
+  </EntityType>
+  <EntityType Name="Pokemons">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="NOM_POKEMON" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PHOTO" Type="nvarchar" MaxLength="150" />
+    <Property Name="TYPE" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PRIX" Type="int" Nullable="false" />
+    <Property Name="VIE" Type="int" Nullable="false" />
+    <Property Name="ATTAQUE" Type="int" Nullable="false" />
+    <Property Name="DEFENSE" Type="int" Nullable="false" />
+    <Property Name="ATTAQUE_DEFAUT" Type="int" />
+  </EntityType>
+  <EntityContainer Name="MainBDModelStoreContainer">
+    <EntitySet Name="Achat_Items" EntityType="Self.Achat_Items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACHAT_POKEMON" EntityType="Self.ACHAT_POKEMON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Attaques" EntityType="Self.Attaques" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pokemons" EntityType="Self.Pokemons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Joueurs" EntityType="Self.Joueurs" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Joueurs].[ALIAS] AS [ALIAS], 
+[Joueurs].[MOT_PASSE] AS [MOT_PASSE], 
+[Joueurs].[DIVISION] AS [DIVISION], 
+[Joueurs].[EMAIL] AS [EMAIL], 
+[Joueurs].[NOMBRE_VICTOIRE] AS [NOMBRE_VICTOIRE], 
+[Joueurs].[NOMBRE_PARTIES_JOUES] AS [NOMBRE_PARTIES_JOUES], 
+[Joueurs].[EXPERIENCE] AS [EXPERIENCE]
+FROM [dbo].[Joueurs] AS [Joueurs]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

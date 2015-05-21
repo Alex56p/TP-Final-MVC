@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MainBDModelStoreContainer" CdmEntityContainer="MainBDEntities">
+    <EntitySetMapping Name="Achat_Items">
+      <EntityTypeMapping TypeName="MainBDModel.Achat_Items">
+        <MappingFragment StoreEntitySet="Achat_Items">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NUM_ITEM" ColumnName="NUM_ITEM" />
+          <ScalarProperty Name="ALIAS_JOUEUR" ColumnName="ALIAS_JOUEUR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACHAT_POKEMON">
+      <EntityTypeMapping TypeName="MainBDModel.ACHAT_POKEMON">
+        <MappingFragment StoreEntitySet="ACHAT_POKEMON">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NUM_POKEMON" ColumnName="NUM_POKEMON" />
+          <ScalarProperty Name="ALIAS_JOUEUR" ColumnName="ALIAS_JOUEUR" />
+          <ScalarProperty Name="LVL" ColumnName="LVL" />
+          <ScalarProperty Name="ATTAQUE1" ColumnName="ATTAQUE1" />
+          <ScalarProperty Name="ATTAQUE2" ColumnName="ATTAQUE2" />
+          <ScalarProperty Name="ATTAQUE3" ColumnName="ATTAQUE3" />
+          <ScalarProperty Name="ATTAQUE4" ColumnName="ATTAQUE4" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attaques">
+      <EntityTypeMapping TypeName="MainBDModel.Attaque">
+        <MappingFragment StoreEntitySet="Attaques">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NOM_ATTAQUE" ColumnName="NOM_ATTAQUE" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="VIE_ENNEMI" ColumnName="VIE_ENNEMI" />
+          <ScalarProperty Name="VIE_ALIER" ColumnName="VIE_ALIER" />
+          <ScalarProperty Name="MANA" ColumnName="MANA" />
+          <ScalarProperty Name="PRIX" ColumnName="PRIX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="MainBDModel.Item">
+        <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NOM_ITEM" ColumnName="NOM_ITEM" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="PRIX" ColumnName="PRIX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pokemons">
+      <EntityTypeMapping TypeName="MainBDModel.Pokemon">
+        <MappingFragment StoreEntitySet="Pokemons">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NOM_POKEMON" ColumnName="NOM_POKEMON" />
+          <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="PRIX" ColumnName="PRIX" />
+          <ScalarProperty Name="VIE" ColumnName="VIE" />
+          <ScalarProperty Name="ATTAQUE" ColumnName="ATTAQUE" />
+          <ScalarProperty Name="DEFENSE" ColumnName="DEFENSE" />
+          <ScalarProperty Name="ATTAQUE_DEFAUT" ColumnName="ATTAQUE_DEFAUT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Joueurs">
+      <EntityTypeMapping TypeName="MainBDModel.Joueur">
+        <MappingFragment StoreEntitySet="Joueurs">
+          <ScalarProperty Name="ALIAS" ColumnName="ALIAS" />
+          <ScalarProperty Name="MOT_PASSE" ColumnName="MOT_PASSE" />
+          <ScalarProperty Name="DIVISION" ColumnName="DIVISION" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="NOMBRE_VICTOIRE" ColumnName="NOMBRE_VICTOIRE" />
+          <ScalarProperty Name="NOMBRE_PARTIES_JOUES" ColumnName="NOMBRE_PARTIES_JOUES" />
+          <ScalarProperty Name="EXPERIENCE" ColumnName="EXPERIENCE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
