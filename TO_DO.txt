@@ -8,17 +8,20 @@ Base de données:
 Pokemon:
 -Afficher les images des pokémons
 -Afficher la vitesse des pokémons *
+-*Rechercher un Pokemon
 
 Items:
--Afficher les items.
 -Afficher les images des items**
+-*Rechercher un Item
 
 Statistiques:
 -Afficher les pokémons
 -Afficher les items
+-Rechercher un joueur
 
 Attaques:
 -Afficher les attaques
+-*Rechercher les attaques
 
 Accueil: 
 -Le faire plus beau, avec des liens aux pages.
