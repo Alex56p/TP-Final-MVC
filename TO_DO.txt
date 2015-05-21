@@ -1,10 +1,5 @@
 TO DO LIST:
 
-Base de données:
--Ajouter la vitesse dans la table *
--Ajouter la vitesse à tous les Pokémons*
--Ajouter une image dans les items**
-
 Pokemon:
 -Afficher la vitesse des pokémons *
 -*Rechercher un Pokemon
