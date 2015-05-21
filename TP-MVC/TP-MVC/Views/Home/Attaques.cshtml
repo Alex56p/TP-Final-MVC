@@ -15,35 +15,24 @@
                 <th>Nom</th>
                 <th>Type</th>
                 <th>Dommage</th>
+                <th>Vie</th>
                 <th>Mana</th>
                 <th>Prix</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Vine Whip</td>
-                <td>Herbe</td>
-                <td>35</td>
-                <td>1</td>
-                <td>200</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Ember</td>
-                <td>Feu</td>
-                <td>40</td>
-                <td>1</td>
-                <td>200</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Bubble</td>
-                <td>Herbe</td>
-                <td>35</td>
-                <td>1</td>
-                <td>200</td>
-            </tr>
+            @foreach (Attaque a in ViewBag.Attaques)
+            {
+                <tr>
+                    <td>@a.Id</td>
+                    <td>@a.NOM_ATTAQUE</td>
+                    <td>@a.TYPE</td>
+                    <td>@a.VIE_ENNEMI</td>
+                    <td>@a.VIE_ALIER</td>
+                    <td>@a.MANA</td>
+                    <td>@a.PRIX</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

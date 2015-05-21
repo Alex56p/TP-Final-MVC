@@ -23,11 +23,12 @@
             </tr>
         </thead>
         <tbody>
+            @{int i = 0;}
             @foreach (Pokemon a in ViewBag.Pokemons)
             {
                 <tr>
                     <td>@a.Id</td>
-                    <td>@a.PHOTO</td>
+                    <td><img id="@i" class="pokThumbnail" src="@Url.Content("../../Pokémons/" + @a.PHOTO)" /></td>
                     <td>@a.NOM_POKEMON</td>
                     <td>@a.TYPE</td>
                     <td>@a.VIE</td>
@@ -35,37 +36,8 @@
                     <td>@a.DEFENSE</td>
                     <td>@a.PRIX</td>
                 </tr>
+                i++;
             }
-            <tr>
-                <td>1</td>
-                <td><img id="1" class="miniThumbnail" src="@Url.Content("../../Images-Pokemon/001.png")" /></td>
-                <td>Bulbasaur</td>
-                <td>Herbe</td>
-                <td>50</td>
-                <td>50</td>
-                <td>50</td>
-                <td>5k</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td><img id="1" class="miniThumbnail"  src="@Url.Content("../../Images-Pokemon/004.png")" /></td>
-                <td>Charmander</td>
-                <td>Feu</td>
-                <td>50</td>
-                <td>60</td>
-                <td>40</td>
-                <td>5k</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td><img id="1" class="miniThumbnail" src="@Url.Content("../../Images-Pokemon/007.png")" /></td>
-                <td>Squirtle</td>
-                <td>Eau</td>
-                <td>60</td>
-                <td>40</td>
-                <td>50</td>
-                <td>5k</td>
-            </tr>
         </tbody>
     </table>
 </div>

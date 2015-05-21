@@ -20,41 +20,20 @@
             </tr>
         </thead>
         <tbody>
+            @{int i = 0;}
             @foreach (Item a in ViewBag.Items)
             {
+                
                 <tr>
                     <td>@a.Id</td>
-                    <td>Path</td>
+                    <td><img id="@i" class="itemThumbnail" src="@Url.Content("../../Images-Items/PotionVie.png")" /></td>
                     <td>@a.NOM_ITEM</td>
                     <td>@a.TYPE</td>
                     <td>@a.DESCRIPTION</td>
                     <td>@a.PRIX</td>
                 </tr>
+                i++;
             }
-            <tr>
-                <td>1</td>
-                <td><img id="1" class="itemThumbnail" src="@Url.Content("../../Images-Items/PotionVie.png")" /></td>
-                <td>Potion de Vie</td>
-                <td>Vie</td>
-                <td>Restaure 20 pts de vie.</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td><img id="1" class="itemThumbnail" src="@Url.Content("../../Images-Items/PotionMana.png")" /></td>
-                <td>Potion de Mana</td>
-                <td>Mana</td>
-                <td>Restaure 50% de la mana du joueur.</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td><img id="1" class="itemThumbnail" src="@Url.Content("../../Images-Items/Protein.png")" /></td>
-                <td>Protéine</td>
-                <td>Attaque</td>
-                <td>Donne 10 Attaque de plus au Pokémon</td>
-                <td>250</td>
-            </tr>
         </tbody>
     </table>
 </div>

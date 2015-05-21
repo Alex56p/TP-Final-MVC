@@ -50,6 +50,8 @@ namespace TP_MVC.Controllers
 
         public ActionResult Attaques()
         {
+            Attaque[] attaques = this.Donnees.Attaques.ToArray();
+            ViewBag.Attaques = attaques;
             return View();
         }
 
@@ -60,6 +62,11 @@ namespace TP_MVC.Controllers
 
         public ActionResult Statistiques()
         {
+            Pokemon[] pokemons = this.Donnees.Pokemons.ToArray();
+            ViewBag.Pokemons = pokemons;
+
+            Item[] items = this.Donnees.Items.ToArray();
+            ViewBag.Items = items;
             return View();
         }
     }

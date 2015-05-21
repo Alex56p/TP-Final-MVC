@@ -6,7 +6,6 @@ Base de données:
 -Ajouter une image dans les items**
 
 Pokemon:
--Afficher les images des pokémons
 -Afficher la vitesse des pokémons *
 -*Rechercher un Pokemon
 
@@ -15,18 +14,18 @@ Items:
 -*Rechercher un Item
 
 Statistiques:
--Afficher les pokémons
--Afficher les items
+-Afficher les pokémons d'un joueur
+-Afficher les items d'un joueur
+-Afficher ceux du joueur courant***
 -Rechercher un joueur
 
 Attaques:
--Afficher les attaques
 -*Rechercher les attaques
 
 Accueil: 
 -Le faire plus beau, avec des liens aux pages.
 
 General:
--Pouvoir se connecter
+-Pouvoir se connecter***
 -Creer un compte
 -Handle les sessions
