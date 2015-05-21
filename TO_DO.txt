@@ -1,5 +1,10 @@
 TO DO LIST:
 
+Pokemon:
+-*Rechercher un Pokemon
+
+Items:
+-*Rechercher un Item
 
 Statistiques:
 -Afficher les pokémons d'un joueur
@@ -7,6 +12,8 @@ Statistiques:
 -Afficher ceux du joueur courant***
 -Rechercher un joueur
 
+Attaques:
+-*Rechercher les attaques
 
 Accueil: 
 -Le faire plus beau, avec des liens aux pages.
