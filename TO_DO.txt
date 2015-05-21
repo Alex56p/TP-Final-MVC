@@ -1,0 +1,28 @@
+TO DO LIST:
+
+Base de données:
+-Ajouter la vitesse dans la table *
+-Ajouter la vitesse à tous les Pokémons*
+
+Pokemon:
+-Afficher les images des pokémons
+-Afficher la vitesse des pokémons *
+
+Items:
+-Afficher les items.
+-Afficher les images des items.
+
+Statistiques:
+-Afficher les pokémons
+-Afficher les items
+
+Attaques:
+-Afficher les attaques
+
+Accueil: 
+-Le faire plus beau, avec des liens aux pages.
+
+General:
+-Pouvoir se connecter
+-Creer un compte
+-Handle les sessions
