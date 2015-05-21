@@ -3,64 +3,14 @@
     ViewBag.Title = "Inscription";
 }
 
-<h2>Login</h2>
+<h2>Inscription</h2>
+@using (Html.BeginForm())
+    {
 <div class="container">
-    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <div class="panel-title">Connectez-vous</div>
-                <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Mot de passe oublié?</a></div>
-            </div>
-
-            <div style="padding-top:30px" class="panel-body">
-
-                <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-
-                <form id="loginform" class="form-horizontal" role="form">
-
-                    <div style="margin-bottom: 25px" class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="Nom d'usager ou email">
-                    </div>
-
-                    <div style="margin-bottom: 25px" class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
-                    </div>
-
-
-
-                    <div style="margin-top:10px" class="form-group">
-                        <!-- Button -->
-
-                        <div class="col-sm-12 controls">
-                            <a id="btn-login" href="#" class="btn btn-success">Se connecter  </a>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <div class="col-md-12 control">
-                            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
-                                Si vous n'avez pas de compte,
-                                <a href="#" onclick="$('#loginbox').hide(); $('#signupbox').show()">
-                                    Inscrivez-vous ici.
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
-
-
-            </div>
-        </div>
-    </div>
-    <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info">
             <div class="panel-heading">
                 <div class="panel-title">Inscription</div>
-                <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Se connecter</a></div>
             </div>
             <div class="panel-body">
                 <form id="signupform" class="form-horizontal" role="form">
@@ -72,37 +22,33 @@
 
                     <div class="form-group">
                         <label for="username" class="col-md-3 control-label">Nom d'usager</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" name="username" placeholder="Nom d'usager">
+                        <div>
+                            @Html.TextBox("TB_Username", null, new { @class = "form-control", @placeholder = "Nom d'usager" })
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="email" class="col-md-3 control-label">Email</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" name="email" placeholder="Email Address">
+                        <div>
+                            @Html.TextBox("TB_Email", null, new { @class = "form-control", @placeholder = "Email" })
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password" class="col-md-3 control-label">Mot de passe</label>
-                        <div class="col-md-9">
-                            <input type="password" class="form-control" name="passwd" placeholder="Mot de passe">
+                        <div>
+                            @Html.Password("TB_Password", null, new { @class = "form-control", @placeholder = "Mot de passe" })
                         </div>
                     </div>
 
                     <div class="form-group">
                         <!-- Button -->
                         <div class="col-md-offset-3 col-md-9">
-                            <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp S'inscrire</button>
+                            <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp S'inscrire</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-
-
-
-
     </div>
 </div>
-
+}

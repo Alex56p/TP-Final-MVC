@@ -110,8 +110,6 @@ namespace TP_MVC.Controllers
                 default:
                     Attaques();
                     break;
-
-                    string yeah;
             }
             
             return View();
@@ -119,6 +117,22 @@ namespace TP_MVC.Controllers
 
         public ActionResult Inscription()
         {
+            return View();
+        }
+        
+        [HttpPost]
+        public ActionResult Inscription(String TB_Username, String TB_Email, String TB_Password)
+        {
+            Joueur j = new Joueur();
+            j.ALIAS = TB_Username; 
+            j.EMAIL = TB_Email;
+            j.MOT_PASSE = TB_Password;
+            j.DIVISION = "Bronze";
+            j.EXPERIENCE = 0;
+            j.NOMBRE_PARTIES_JOUES = 0;
+            j.NOMBRE_VICTOIRE = 0;
+            Donnees.Joueurs.Add(j);
+            Donnees.SaveChanges();
             return View();
         }
 
@@ -129,6 +143,26 @@ namespace TP_MVC.Controllers
 
             Item[] items = this.Donnees.Items.ToArray();
             ViewBag.Items = items;
+            return View();
+        }
+
+        public ActionResult Connexion()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Connexion(String TB_UserName, String TB_Password)
+        {
+            Joueur[] j = this.Donnees.Joueurs.Where(c => c.ALIAS.Equals(TB_UserName)).Where(c => c.MOT_PASSE.Equals(TB_Password)).ToArray();
+            if (j.Length > 0)
+            {
+                Session["Username"] = TB_UserName;
+                return RedirectToAction("Index");
+            }
+            else
+                ViewBag.Error = "Mauvais usager/mot de passe";
+
             return View();
         }
     }
