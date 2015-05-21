@@ -20,7 +20,17 @@
             </tr>
         </thead>
         <tbody>
-
+            @foreach (Item a in ViewBag.Items)
+            {
+                <tr>
+                    <td>@a.Id</td>
+                    <td>Path</td>
+                    <td>@a.NOM_ITEM</td>
+                    <td>@a.TYPE</td>
+                    <td>@a.DESCRIPTION</td>
+                    <td>@a.PRIX</td>
+                </tr>
+            }
             <tr>
                 <td>1</td>
                 <td><img id="1" class="itemThumbnail" src="@Url.Content("../../Images-Items/PotionVie.png")" /></td>

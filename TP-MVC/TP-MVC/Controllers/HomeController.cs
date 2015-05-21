@@ -43,6 +43,8 @@ namespace TP_MVC.Controllers
 
         public ActionResult Items()
         {
+            Item[] items = this.Donnees.Items.ToArray();
+            ViewBag.Items = items;
             return View();
         }
 
