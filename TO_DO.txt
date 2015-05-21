@@ -3,6 +3,7 @@ TO DO LIST:
 Base de données:
 -Ajouter la vitesse dans la table *
 -Ajouter la vitesse à tous les Pokémons*
+-Ajouter une image dans les items**
 
 Pokemon:
 -Afficher les images des pokémons
@@ -10,7 +11,7 @@ Pokemon:
 
 Items:
 -Afficher les items.
--Afficher les images des items.
+-Afficher les images des items**
 
 Statistiques:
 -Afficher les pokémons
