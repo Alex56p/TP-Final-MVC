@@ -1,6 +1,7 @@
 TO DO LIST:
 
 Pokemon:
+-Afficher le nom de l'attaque par défaut
 
 Items:
 
@@ -19,7 +20,10 @@ Connexion:
 -Handle les exceptions (pas de username, pas de password)
 
 Inscription:
--Mettre required, si il existe deja, faire que ca doit etre un email valide
+-Mettre required
+-si il existe deja
+-faire que ca doit etre un email valide
 
 General:
--Handle les sessions
+-Une fois connecté, afficher le nom de l'usager en haut.
+-Déconnexion.
