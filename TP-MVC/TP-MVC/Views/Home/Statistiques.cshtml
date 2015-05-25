@@ -47,6 +47,7 @@
                 <th>Vie</th>
                 <th>Attaque</th>
                 <th>Defense</th>
+                <th>Vitesse</th>
                 <th>Attaque 1</th>
                 <th>Attaque 2</th>
                 <th>Attaque 3</th>
@@ -54,45 +55,25 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td><img id="1" class="pokThumbnail" src="@Url.Content("../../Images-Pokemon/001.png")" /></td>
-                <td>Bulbasaur</td>
-                <td>Herbe</td>
-                <td>50</td>
-                <td>50</td>
-                <td>50</td>
-                <td>Vine Whip</td>
-                <td>Tackle</td>
-                <td>Leech Seed</td>
-                <td>Growth</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td><img id="1" class="pokThumbnail" src="@Url.Content("../../Images-Pokemon/004.png")" /></td>
-                <td>Charmander</td>
-                <td>Feu</td>
-                <td>50</td>
-                <td>60</td>
-                <td>40</td>
-                <td>Tackle</td>
-                <td>Ember</td>
-                <td>Leer</td>
-                <td>Metal Claw</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td><img id="1" class="pokThumbnail" src="@Url.Content("../../Images-Pokemon/007.png")" /></td>
-                <td>Squirtle</td>
-                <td>Eau</td>
-                <td>60</td>
-                <td>40</td>
-                <td>50</td>
-                <td>Headbutt</td>
-                <td>Witrdraw</td>
-                <td>Bubble</td>
-                <td>Bite</td>            
-            </tr>
+            @{int i = 0;}
+            @foreach (var a in ViewBag.Pokemons)
+            {
+                <tr>
+                    <td>@a.LVL</td>
+                    <td><img id="@i" class="pokThumbnail" src="@Url.Content("../../Pokémons/" + @a.PHOTO)" /></td>
+                    <td>@a.NOM_POKEMON</td>
+                    <td>@a.TYPE</td>
+                    <td>@a.VIE</td>
+                    <td>@a.ATTAQUE</td>
+                    <td>@a.DEFENSE</td>
+                    <td>@a.VITESSE</td>
+                    <td>@a.ATTAQUE1</td>
+                    <td>@a.ATTAQUE2</td>
+                    <td>@a.ATTAQUE3</td>
+                    <td>@a.ATTAQUE4</td>
+                </tr>
+                i++;
+            }
         </tbody>
     </table>
     <hr />

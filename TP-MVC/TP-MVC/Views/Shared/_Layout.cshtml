@@ -36,8 +36,16 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 <ul class=" nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Se Connecter", "Connexion", "Home")</li>
-                    <li>@Html.ActionLink("S'inscrire", "Inscription", "Home")</li>
+                    @if(Session["Username"] == null || Session["Username"] == "")
+                    { 
+                        <li>@Html.ActionLink("Se Connecter", "Connexion", "Home")</li>
+                        <li>@Html.ActionLink("S'inscrire", "Inscription", "Home")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink(Session["Username"].ToString(),"Statistiques","Home")</li>
+                        <li>@Html.ActionLink("Se déconnecter", "Deconnexion", "Home")</li>
+                    }
                 </ul>
             </div>
         </div>

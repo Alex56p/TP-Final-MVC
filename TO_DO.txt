@@ -23,7 +23,3 @@ Inscription:
 -Mettre required
 -si il existe deja
 -faire que ca doit etre un email valide
-
-General:
--Une fois connecté, afficher le nom de l'usager en haut.
--Déconnexion.
