@@ -5,7 +5,6 @@ Pokemon:
 Items:
 
 Statistiques:
--Afficher image de la division
 -Afficher l'admin OP si personne est connecté
 -Rechercher un joueur
 

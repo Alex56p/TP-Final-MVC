@@ -1,39 +1,46 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Items";
 }
 
 
-
-<div class="container">
-    <h2>Items</h2>
-    <p>Tous les items présents dans le jeu sont présents ici avec leur statistiques:</p>
-    <table class="table">
-        <thead>
-            <tr >
-                <th>#</th>
-                <th>Image</th>
-                <th>Nom</th>
-                <th>Type</th>
-                <th>Description</th>
-                <th>Prix</th>
-            </tr>
-        </thead>
-        <tbody>
-            @{int i = 0;}
-            @foreach (Item a in ViewBag.Items)
-            {
-                
+@using (Html.BeginForm())
+{
+    <div class="container">
+        <h2>Items</h2>
+        <div>
+            @Html.Label("Rechercher un item par son nom : ")
+            @Html.TextBox("TB_RechercherItem")
+            <button type="submit" name="Submit" value="Rechercher">Rechercher</button>
+            <button type="submit" name="Submit" value="Tout">Afficher Tout</button>
+        </div>
+        <p>Tous les items présents dans le jeu sont présents ici avec leur statistiques:</p>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>@a.Id</td>
-                    <td><img id="@i" class="itemThumbnail" src="@Url.Content("../../Images-Items/" + a.IMAGE)" /></td>
-                    <td>@a.NOM_ITEM</td>
-                    <td>@a.TYPE</td>
-                    <td>@a.DESCRIPTION</td>
-                    <td>@a.PRIX</td>
+                    <th>#</th>
+                    <th>Image</th>
+                    <th>Nom</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Prix</th>
                 </tr>
-                i++;
-            }
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+                @{int i = 0;}
+                @foreach (Item a in ViewBag.Items)
+                {
+
+                    <tr>
+                        <td>@a.Id</td>
+                        <td><img id="@i" class="itemThumbnail" src="@Url.Content("../../Images-Items/" + a.IMAGE)" /></td>
+                        <td>@a.NOM_ITEM</td>
+                        <td>@a.TYPE</td>
+                        <td>@a.DESCRIPTION</td>
+                        <td>@a.PRIX</td>
+                    </tr>
+                    i++;
+                }
+            </tbody>
+        </table>
+    </div>
+}
