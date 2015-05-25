@@ -20,6 +20,7 @@
                 <th>Attaque</th>
                 <th>Defense</th>
                 <th>Vitesse</th>
+                <th>Attaque Défaut</th>
                 <th>Prix</th>
             </tr>
         </thead>
@@ -36,6 +37,7 @@
                     <td>@a.ATTAQUE</td>
                     <td>@a.DEFENSE</td>
                     <td>@a.VITESSE</td>
+                    <td>@Attaque.GetNom(a.ATTAQUE_DEFAUT)</td>
                     <td>@a.PRIX</td>
                 </tr>
                 i++;

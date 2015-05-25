@@ -20,5 +20,13 @@ namespace TP_MVC
         public string TYPE { get; set; }
         public string DESCRIPTION { get; set; }
         public int PRIX { get; set; }
+
+        public static Item Afficher(int num)
+        {
+            MainBDEntities Donnees = new MainBDEntities();
+            Item result = Donnees.Items.Find(num);
+
+            return result;
+        }
     }
 }

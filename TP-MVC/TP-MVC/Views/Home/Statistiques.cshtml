@@ -12,25 +12,36 @@
                 <img id="img_profile" class="img-circle" src="https://lh3.googleusercontent.com/-KsUBA6WF_3s/AAAAAAAAAAI/AAAAAAAAALY/a_RHcBx0KYM/photo.jpg">
             </div>
             <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
-                <h2>Username</h2><br>
+                @if(Session["Username"] != null)
+                    {
+                        <h2>@Session["Username"]</h2>
+                    }
+                    else
+                    {
+                        <h2>Alex56p</h2>
+                    }<br>
                 <table class="table table-user-information">
                     <tbody>
-                        <tr>
-                            <td>Division:</td>
-                            <td>Diamant</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre de pokémons:</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>Victoires:</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>Parties jouées:</td>
-                            <td>5</td>
-                        </tr>
+                        @foreach (Joueur j in ViewBag.Joueur)
+                        {
+                            <tr>
+                                <td>Division:</td>
+                                <td>@j.DIVISION</td>
+                            </tr>
+                            <tr>
+                                <td>Victoires:</td>
+                                <td>@j.NOMBRE_VICTOIRE</td>
+                            </tr>
+                            <tr>
+                                <td>Parties jouées:</td>
+                                <td>@j.NOMBRE_PARTIES_JOUES</td>
+                            </tr>
+                            <tr>
+                                <td>Expérience:</td>
+                                <td>@j.EXPERIENCE</td>
+                            </tr>
+                        }
+                        
                     </tbody>
                 </table>
             </div>
@@ -52,25 +63,27 @@
                 <th>Attaque 2</th>
                 <th>Attaque 3</th>
                 <th>Attaque 4</th>
+
             </tr>
         </thead>
         <tbody>
             @{int i = 0;}
-            @foreach (var a in ViewBag.Pokemons)
+            @foreach (ACHAT_POKEMON a in ViewBag.Pokemons)
             {
+                Pokemon b = Pokemon.Afficher(a.NUM_POKEMON);
                 <tr>
                     <td>@a.LVL</td>
-                    <td><img id="@i" class="pokThumbnail" src="@Url.Content("../../Pokémons/" + @a.PHOTO)" /></td>
-                    <td>@a.NOM_POKEMON</td>
-                    <td>@a.TYPE</td>
-                    <td>@a.VIE</td>
-                    <td>@a.ATTAQUE</td>
-                    <td>@a.DEFENSE</td>
-                    <td>@a.VITESSE</td>
-                    <td>@a.ATTAQUE1</td>
-                    <td>@a.ATTAQUE2</td>
-                    <td>@a.ATTAQUE3</td>
-                    <td>@a.ATTAQUE4</td>
+                    <td><img id="@i" class="pokThumbnail" src="@Url.Content("../../Pokémons/" + @b.PHOTO)" /></td>
+                    <td>@b.NOM_POKEMON</td>
+                    <td>@b.TYPE</td>
+                    <td>@b.VIE</td>
+                    <td>@b.ATTAQUE</td>
+                    <td>@b.DEFENSE</td>
+                    <td>@b.VITESSE</td>
+                    <td>@Attaque.GetNom(a.ATTAQUE1)</td>
+                    <td>@Attaque.GetNom(a.ATTAQUE2)</td>
+                    <td>@Attaque.GetNom(a.ATTAQUE3)</td>
+                    <td>@Attaque.GetNom(a.ATTAQUE4)</td>
                 </tr>
                 i++;
             }
@@ -82,7 +95,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Quantité</th>
+                <th></th>
                 <th>Image</th>
                 <th>Nom</th>
                 <th>Type</th>
@@ -90,28 +103,19 @@
             </tr>
         </thead>
         <tbody>
-
-            <tr>
-                <td>1</td>
-                <td><img id="1" class="itemThumbnail" src="@Url.Content("../../Images-Items/PotionVie.png")" /></td>
-                <td>Potion de Vie</td>
-                <td>Vie</td>
-                <td>Restaure 20 pts de vie.</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td><img id="1" class="itemThumbnail" src="@Url.Content("../../Images-Items/PotionMana.png")" /></td>
-                <td>Potion de Mana</td>
-                <td>Mana</td>
-                <td>Restaure 50% de la mana du joueur.</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td><img id="1" class="itemThumbnail" src="@Url.Content("../../Images-Items/Protein.png")" /></td>
-                <td>Protéine</td>
-                <td>Attaque</td>
-                <td>Donne 10 Attaque de plus au Pokémon</td>
-            </tr>
+            @{int k = 0;}
+            @foreach (Achat_Items a in ViewBag.Items)
+            {
+                Item b = Item.Afficher(a.NUM_ITEM);
+                <tr>
+                    <td style="width:5%;"></td>
+                    <td><img id="1" class="itemThumbnail" src="@Url.Content("../../Images-Items/" + @b.IMAGE)"/></td>
+                    <td>@b.NOM_ITEM</td>
+                    <td>@b.TYPE</td>
+                    <td>@b.DESCRIPTION</td>
+                </tr>
+                k++;
+            }
         </tbody>
     </table>
 </div>

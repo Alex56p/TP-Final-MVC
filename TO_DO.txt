@@ -1,14 +1,12 @@
 TO DO LIST:
 
 Pokemon:
--Afficher le nom de l'attaque par défaut
 
 Items:
 
 Statistiques:
--Afficher les pokémons d'un joueur
--Afficher les items d'un joueur
--Afficher ceux du joueur courant***
+-Afficher image de la division
+-Afficher l'admin OP si personne est connecté
 -Rechercher un joueur
 
 Attaques:

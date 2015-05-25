@@ -24,5 +24,13 @@ namespace TP_MVC
         public int DEFENSE { get; set; }
         public Nullable<int> VITESSE { get; set; }
         public Nullable<int> ATTAQUE_DEFAUT { get; set; }
+
+        public static Pokemon Afficher(int num)
+        {
+            MainBDEntities Donnees = new MainBDEntities();
+            Pokemon result = Donnees.Pokemons.Find(num);
+
+            return result;
+        }
     }
 }

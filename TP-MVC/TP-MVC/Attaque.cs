@@ -21,5 +21,16 @@ namespace TP_MVC
         public Nullable<int> VIE_ALIER { get; set; }
         public int MANA { get; set; }
         public int PRIX { get; set; }
+
+        public static string GetNom(int? num)
+        {
+            MainBDEntities Donnees = new MainBDEntities();
+            Attaque a = Donnees.Attaques.Find(num);
+
+            if (a != null)
+                return a.NOM_ATTAQUE;
+            else
+                return num.ToString();
+        }
     }
 }

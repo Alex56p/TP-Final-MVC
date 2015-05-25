@@ -32,6 +32,11 @@ namespace TP_MVC.Controllers
             return View();
         }
 
+        public Pokemon Afficher(int num)
+        {
+            return new Pokemon();
+        }
+
         [HttpPost]
         public ActionResult Pokemons(string TB_RechercherPokemon, string Submit)
         {
@@ -159,32 +164,36 @@ namespace TP_MVC.Controllers
 
         public ActionResult Statistiques()
         {
-            var Pkmnjoueur = from p in Donnees.Pokemons
-                                join a in Donnees.ACHAT_POKEMON
-                                on p.Id equals a.NUM_POKEMON
-                                select new
-                                {
-                                    a.LVL,
-                                    p.PHOTO,
-                                    p.NOM_POKEMON,
-                                    p.TYPE,
-                                    p.VIE,
-                                    p.ATTAQUE,
-                                    p.DEFENSE,
-                                    p.VITESSE,
-                                    a.ATTAQUE1,
-                                    a.ATTAQUE2,
-                                    a.ATTAQUE3,
-                                    a.ATTAQUE4
-                                };
+            String Username = "";
+            if(Session["Username"] != null)
+            {
+                Username = Session["Username"].ToString();
+            }
+
+            if(Username != "")
+            {
+                ACHAT_POKEMON[] pokemons = this.Donnees.ACHAT_POKEMON.Where(c => c.ALIAS_JOUEUR.Equals(Username)).ToArray();
+                ViewBag.Pokemons = pokemons;
+
+                Achat_Items[] items = this.Donnees.Achat_Items.Where(c=> c.ALIAS_JOUEUR.Equals(Username)).ToArray();
+                ViewBag.Items = items;
+
+                Joueur[] j = Donnees.Joueurs.Where(c => c.ALIAS.Equals(Username)).ToArray();
+                ViewBag.Joueur = j;
+            }
+            else
+            {
+                ACHAT_POKEMON[] pokemons = this.Donnees.ACHAT_POKEMON.Where(c => c.ALIAS_JOUEUR.Equals("Alex56p")).ToArray();
+                ViewBag.Pokemons = pokemons;
+
+                Achat_Items[] items = this.Donnees.Achat_Items.Where(c => c.ALIAS_JOUEUR.Equals("Alex56p")).ToArray();
+                ViewBag.Items = items;
+
+                Joueur[] j = Donnees.Joueurs.Where(c => c.ALIAS.Equals("Alex56p")).ToArray();
+                ViewBag.Joueur = j;
+            }
 
             
-
-            Pokemon[] pokemons = this.Donnees.Pokemons.ToArray();
-            ViewBag.Pokemons = Pkmnjoueur;
-
-            Item[] items = this.Donnees.Items.ToArray();
-            ViewBag.Items = items;
             return View();
         }
 
