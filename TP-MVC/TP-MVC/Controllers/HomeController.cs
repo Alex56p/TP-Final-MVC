@@ -162,6 +162,33 @@ namespace TP_MVC.Controllers
             return View();
         }
 
+        public ActionResult Update()
+        {
+            if(Session["Username"] != null)
+            {
+                String username = Session["Username"].ToString();
+                Joueur[] j = Donnees.Joueurs.Where(c => c.ALIAS.Equals(username)).ToArray();
+                ViewBag.Joueur = j;
+                return View();
+            }
+            else
+                return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public ActionResult Update(String TB_Username, String TB_Password, String TB_Email)
+        {
+            if (TB_Username != null && TB_Email != null && TB_Password != null && TB_Username != "" && TB_Email != "" && TB_Password != "" && Session["Username"] != null)
+            {
+                Joueur j = Donnees.Joueurs.Find(Session["Username"].ToString());
+                j.ALIAS = TB_Username;
+                j.EMAIL = TB_Email;
+                j.MOT_PASSE = TB_Password;
+                Donnees.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+                return RedirectToAction("Index");
+        }
         public ActionResult Statistiques()
         {
             String Username = "";
@@ -228,5 +255,7 @@ namespace TP_MVC.Controllers
             Session.Clear();
             return RedirectToAction("Index");
         }
+
+        
     }
 }

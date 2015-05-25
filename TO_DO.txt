@@ -21,6 +21,11 @@ Inscription:
 Admin:
 -Peut deleter  des  comptes.
 
+Update:
+-Handle les exceptions
+
 Général:
 -Faire que cest des partial views.
--Faire une view pour update son compte
+
+
+(Passer le joueur courant en paramètre dans ViewBag.Joueur)

@@ -218,6 +218,7 @@
     <Content Include="Views\Home\Inscription.cshtml" />
     <Content Include="Views\Home\Statistiques.cshtml" />
     <Content Include="Views\Home\Connexion.cshtml" />
+    <Content Include="Views\Home\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
