@@ -9,7 +9,33 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
-                <img id="img_profile" class="img-circle" src="https://lh3.googleusercontent.com/-KsUBA6WF_3s/AAAAAAAAAAI/AAAAAAAAALY/a_RHcBx0KYM/photo.jpg">
+                @foreach (Joueur j in ViewBag.Joueur)
+                {
+                    if (j.DIVISION == "Bronze")
+                    {
+                        <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Bronze.png")">
+                    }
+                    else if (j.DIVISION == "Argent")
+                    {
+                        <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Silver.png")">
+                    }
+                    else if (j.DIVISION == "Diamand")
+                    {
+                        <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Diamond.png")">
+                    }
+                    else if (j.DIVISION == "Platine")
+                    {
+                        <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Platinum.png")">
+                    }
+                    else if (j.DIVISION == "Or")
+                    {
+                        <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Gold.png")">
+                    }
+                    else if (j.DIVISION == "Master")
+                    {
+                        <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Master.png")">
+                    }
+                }
             </div>
             <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
                 @if(Session["Username"] != null)
