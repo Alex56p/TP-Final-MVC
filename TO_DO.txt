@@ -18,5 +18,9 @@ Connexion:
 
 Inscription:
 
+Admin:
+-Peut deleter  des  comptes.
+
 Général:
 -Faire que cest des partial views.
+-Faire une view pour update son compte
