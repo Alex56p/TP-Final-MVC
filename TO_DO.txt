@@ -5,8 +5,6 @@ Pokemon:
 Items:
 
 Statistiques:
--Afficher l'admin OP si personne est connecté
--Rechercher un joueur
 
 Attaques:
 
