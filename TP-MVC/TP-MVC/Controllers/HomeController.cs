@@ -9,6 +9,7 @@ namespace TP_MVC.Controllers
     public class HomeController : Controller
     {
         private MainBDEntities Donnees = new MainBDEntities();
+
         public ActionResult Index()
         {
             return View();
@@ -37,10 +38,12 @@ namespace TP_MVC.Controllers
             return new Pokemon();
         }
 
+
+        #region Pokemons
         [HttpPost]
         public ActionResult Pokemons(string TB_RechercherPokemon, string Submit)
         {
-            switch(Submit)
+            switch (Submit)
             {
                 case "Rechercher":
                     Pokemon[] pokemons = this.Donnees.Pokemons.Where(c => c.NOM_POKEMON.StartsWith(TB_RechercherPokemon)).ToArray();
@@ -56,7 +59,7 @@ namespace TP_MVC.Controllers
             return View();
         }
 
-        
+
         public ActionResult Pokemons()
         {
             Pokemon[] pokemons = this.Donnees.Pokemons.ToArray();
@@ -64,6 +67,8 @@ namespace TP_MVC.Controllers
             return View();
         }
 
+        #endregion
+        #region Item
         public ActionResult Items()
         {
             Item[] items = this.Donnees.Items.ToArray();
@@ -90,7 +95,8 @@ namespace TP_MVC.Controllers
             
             return View();
         }
-
+        #endregion
+        #region Attaques
         public ActionResult Attaques()
         {
             Attaque[] attaques = this.Donnees.Attaques.ToArray();
@@ -117,7 +123,8 @@ namespace TP_MVC.Controllers
             
             return View();
         }
-
+        #endregion
+        #region Inscription
         public ActionResult Inscription()
         {
             return View();
@@ -161,7 +168,8 @@ namespace TP_MVC.Controllers
             }
             return View();
         }
-
+        #endregion
+        #region Update
         public ActionResult Update()
         {
             if(Session["Username"] != null)
@@ -174,6 +182,7 @@ namespace TP_MVC.Controllers
             else
                 return RedirectToAction("Index");
         }
+
         [HttpPost]
         public ActionResult Update(String TB_Username, String TB_Password, String TB_Email)
         {
@@ -189,6 +198,8 @@ namespace TP_MVC.Controllers
             else
                 return RedirectToAction("Index");
         }
+        #endregion
+        #region Statistiques
         public ActionResult Statistiques()
         {
             String Username = "";
@@ -210,20 +221,45 @@ namespace TP_MVC.Controllers
             }
             else
             {
-                ACHAT_POKEMON[] pokemons = this.Donnees.ACHAT_POKEMON.Where(c => c.ALIAS_JOUEUR.Equals("Alex56p")).ToArray();
+                ACHAT_POKEMON[] pokemons = this.Donnees.ACHAT_POKEMON.Where(c => c.ALIAS_JOUEUR.Equals("Admin")).ToArray();
                 ViewBag.Pokemons = pokemons;
 
-                Achat_Items[] items = this.Donnees.Achat_Items.Where(c => c.ALIAS_JOUEUR.Equals("Alex56p")).ToArray();
+                Achat_Items[] items = this.Donnees.Achat_Items.Where(c => c.ALIAS_JOUEUR.Equals("Admin")).ToArray();
                 ViewBag.Items = items;
 
-                Joueur[] j = Donnees.Joueurs.Where(c => c.ALIAS.Equals("Alex56p")).ToArray();
+                Joueur[] j = Donnees.Joueurs.Where(c => c.ALIAS.Equals("Admin")).ToArray();
                 ViewBag.Joueur = j;
             }
-
             
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Statistiques(string TB_RechercherJoueur)
+        {
+            ACHAT_POKEMON[] pokemons = this.Donnees.ACHAT_POKEMON.Where(c => c.ALIAS_JOUEUR.Equals(TB_RechercherJoueur)).ToArray();
+            ViewBag.Pokemons = pokemons;
+
+            Achat_Items[] items = this.Donnees.Achat_Items.Where(c => c.ALIAS_JOUEUR.Equals(TB_RechercherJoueur)).ToArray();
+            ViewBag.Items = items;
+
+            Joueur[] j = Donnees.Joueurs.Where(c => c.ALIAS.Equals(TB_RechercherJoueur)).ToArray();
+            ViewBag.Joueur = j;
+
+            if(j.Length != 0)
+            {
+                ViewBag.Trouve = true;
+                ViewBag.UsernameRecherche = j[0].ALIAS;
+            }
+            else
+            {
+                ViewBag.Trouve = false;
+            }
+
+            return View();
+        }
+        #endregion
+        #region Connexion
         public ActionResult Connexion()
         {
             return View();
@@ -255,7 +291,6 @@ namespace TP_MVC.Controllers
             Session.Clear();
             return RedirectToAction("Index");
         }
-
-        
+        #endregion
     }
 }

@@ -1,148 +1,164 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Statistiques";
 }
 
-<h2>Statistiques</h2>
-
-<div class="Profile">
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
-                @foreach (Joueur j in ViewBag.Joueur)
-                {
-                    if (j.DIVISION == "Bronze")
+@using (Html.BeginForm())
+{
+    <h2>Statistiques</h2>
+    <div>
+        @Html.Label("Rechercher un joueur par son nom : ")
+        @Html.TextBox("TB_RechercherJoueur")
+        <button type="submit" name="Submit" value="Rechercher">Rechercher</button>
+    </div>
+    <div class="Profile">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
+                    @foreach (Joueur j in ViewBag.Joueur)
                     {
-                        <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Bronze.png")">
+                        if (j.DIVISION == "Bronze")
+                        {
+                            <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Bronze.png")">
+                        }
+                        else if (j.DIVISION == "Argent")
+                        {
+                            <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Silver.png")">
+                        }
+                        else if (j.DIVISION == "Diamand")
+                        {
+                            <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Diamond.png")">
+                        }
+                        else if (j.DIVISION == "Platine")
+                        {
+                            <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Platinum.png")">
+                        }
+                        else if (j.DIVISION == "Or")
+                        {
+                            <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Gold.png")">
+                        }
+                        else if (j.DIVISION == "Master")
+                        {
+                            <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Master.png")">
+                        }
                     }
-                    else if (j.DIVISION == "Argent")
-                    {
-                        <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Silver.png")">
-                    }
-                    else if (j.DIVISION == "Diamand")
-                    {
-                        <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Diamond.png")">
-                    }
-                    else if (j.DIVISION == "Platine")
-                    {
-                        <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Platinum.png")">
-                    }
-                    else if (j.DIVISION == "Or")
-                    {
-                        <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Gold.png")">
-                    }
-                    else if (j.DIVISION == "Master")
-                    {
-                        <img id="img_profile" class="img-circle" src="@Url.Content("../../Divisions/Master.png")">
-                    }
-                }
-            </div>
-            <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
-                @if(Session["Username"] != null)
+                </div>
+                <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
+                    @if (Session["Username"] != null && ViewBag.Trouve == null)
                     {
                         <h2>@Session["Username"]</h2>
                     }
+                    else if(ViewBag.Trouve != null)
+                    {
+                        if(ViewBag.Trouve)
+                        {
+                            <h2>@ViewBag.UsernameRecherche</h2>
+                        }
+                        else
+                        {
+                            <h2>Aucun Joueur trouvé</h2>
+                        }
+                    }
                     else
                     {
-                        <h2>Alex56p</h2>
+                        <h2>Admin</h2>
                     }<br>
-                <table class="table table-user-information">
-                    <tbody>
-                        @foreach (Joueur j in ViewBag.Joueur)
-                        {
-                            <tr>
-                                <td>Division:</td>
-                                <td>@j.DIVISION</td>
-                            </tr>
-                            <tr>
-                                <td>Victoires:</td>
-                                <td>@j.NOMBRE_VICTOIRE</td>
-                            </tr>
-                            <tr>
-                                <td>Parties jouées:</td>
-                                <td>@j.NOMBRE_PARTIES_JOUES</td>
-                            </tr>
-                            <tr>
-                                <td>Expérience:</td>
-                                <td>@j.EXPERIENCE</td>
-                            </tr>
-                        }
-                        
-                    </tbody>
-                </table>
+                    <table class="table table-user-information">
+                        <tbody>
+                            @foreach (Joueur j in ViewBag.Joueur)
+                            {
+                                <tr>
+                                    <td>Division:</td>
+                                    <td>@j.DIVISION</td>
+                                </tr>
+                                <tr>
+                                    <td>Victoires:</td>
+                                    <td>@j.NOMBRE_VICTOIRE</td>
+                                </tr>
+                                <tr>
+                                    <td>Parties jouées:</td>
+                                    <td>@j.NOMBRE_PARTIES_JOUES</td>
+                                </tr>
+                                <tr>
+                                    <td>Expérience:</td>
+                                    <td>@j.EXPERIENCE</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
+        <h2>Pokémons</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Niveau</th>
+                    <th>Image</th>
+                    <th>Nom</th>
+                    <th>Type</th>
+                    <th>Vie</th>
+                    <th>Attaque</th>
+                    <th>Defense</th>
+                    <th>Vitesse</th>
+                    <th>Attaque 1</th>
+                    <th>Attaque 2</th>
+                    <th>Attaque 3</th>
+                    <th>Attaque 4</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @{int i = 0;}
+                @foreach (ACHAT_POKEMON a in ViewBag.Pokemons)
+                {
+                    Pokemon b = Pokemon.Afficher(a.NUM_POKEMON);
+                    <tr>
+                        <td>@a.LVL</td>
+                        <td><img id="@i" class="pokThumbnail" src="@Url.Content("../../Pokémons/" + @b.PHOTO)" /></td>
+                        <td>@b.NOM_POKEMON</td>
+                        <td>@b.TYPE</td>
+                        <td>@b.VIE</td>
+                        <td>@b.ATTAQUE</td>
+                        <td>@b.DEFENSE</td>
+                        <td>@b.VITESSE</td>
+                        <td>@Attaque.GetNom(a.ATTAQUE1)</td>
+                        <td>@Attaque.GetNom(a.ATTAQUE2)</td>
+                        <td>@Attaque.GetNom(a.ATTAQUE3)</td>
+                        <td>@Attaque.GetNom(a.ATTAQUE4)</td>
+                    </tr>
+                    i++;
+                }
+            </tbody>
+        </table>
+        <hr />
+
+        <h2>Items</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Image</th>
+                    <th>Nom</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int k = 0;}
+                @foreach (Achat_Items a in ViewBag.Items)
+                {
+                    Item b = Item.Afficher(a.NUM_ITEM);
+                    <tr>
+                        <td style="width:5%;"></td>
+                        <td><img id="1" class="itemThumbnail" src="@Url.Content("../../Images-Items/" + @b.IMAGE)" /></td>
+                        <td>@b.NOM_ITEM</td>
+                        <td>@b.TYPE</td>
+                        <td>@b.DESCRIPTION</td>
+                    </tr>
+                    k++;
+                }
+            </tbody>
+        </table>
     </div>
-    <h2>Pokémons</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Niveau</th>
-                <th>Image</th>
-                <th>Nom</th>
-                <th>Type</th>
-                <th>Vie</th>
-                <th>Attaque</th>
-                <th>Defense</th>
-                <th>Vitesse</th>
-                <th>Attaque 1</th>
-                <th>Attaque 2</th>
-                <th>Attaque 3</th>
-                <th>Attaque 4</th>
-
-            </tr>
-        </thead>
-        <tbody>
-            @{int i = 0;}
-            @foreach (ACHAT_POKEMON a in ViewBag.Pokemons)
-            {
-                Pokemon b = Pokemon.Afficher(a.NUM_POKEMON);
-                <tr>
-                    <td>@a.LVL</td>
-                    <td><img id="@i" class="pokThumbnail" src="@Url.Content("../../Pokémons/" + @b.PHOTO)" /></td>
-                    <td>@b.NOM_POKEMON</td>
-                    <td>@b.TYPE</td>
-                    <td>@b.VIE</td>
-                    <td>@b.ATTAQUE</td>
-                    <td>@b.DEFENSE</td>
-                    <td>@b.VITESSE</td>
-                    <td>@Attaque.GetNom(a.ATTAQUE1)</td>
-                    <td>@Attaque.GetNom(a.ATTAQUE2)</td>
-                    <td>@Attaque.GetNom(a.ATTAQUE3)</td>
-                    <td>@Attaque.GetNom(a.ATTAQUE4)</td>
-                </tr>
-                i++;
-            }
-        </tbody>
-    </table>
-    <hr />
-
-    <h2>Items</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Image</th>
-                <th>Nom</th>
-                <th>Type</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            @{int k = 0;}
-            @foreach (Achat_Items a in ViewBag.Items)
-            {
-                Item b = Item.Afficher(a.NUM_ITEM);
-                <tr>
-                    <td style="width:5%;"></td>
-                    <td><img id="1" class="itemThumbnail" src="@Url.Content("../../Images-Items/" + @b.IMAGE)"/></td>
-                    <td>@b.NOM_ITEM</td>
-                    <td>@b.TYPE</td>
-                    <td>@b.DESCRIPTION</td>
-                </tr>
-                k++;
-            }
-        </tbody>
-    </table>
-</div>
-
+}
