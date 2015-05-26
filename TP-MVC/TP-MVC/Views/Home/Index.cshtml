@@ -1,35 +1,43 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<img id="img-logo" alt="Logo" src="@Url.Content("../../Images/pokemon-header.png")" />
-<div class="jumbotron">
-    <h1>Nom de l'application</h1>
-    <p class="lead">Le jeu "" est un jeu de combat sur une plateforme. Il ressemble beaucoup à Pokemon Stadium, mais avec quelques éléments qui diffèrent.</p>
-    <p class="lead">Le but du jeu est de battre tous les Pokémons de l'autre joueur. Pour ce faire, vous devez mettre sur le jeu un Pokémon à la fois.
-    Chaque Pokémons peut avoir jusqu`à 4 attaques. C'est vous qui décidez quelles attaques vous voulez sur votre Pokémon.</p>
-</div>
+<img id="img-logo" class="Logo" src="@Url.Content("../../Images/pokemon-header.png")" />
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Pour débuter</h2>
-        <p>
-            L'univers de notre jeu comprend plusieurs informations nécessaires à la bonne compréhension du système de combat. 
-            Sur cette page, vous pourrez apprendre sur les différents Pokémons, les différents items et sur les modes de jeu disponibles.
-        </p>
-        <p><a class="btn btn-default" href="#">Informations&raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Statistiques</h2>
-        <p>
-            Si vous avez un compte, vous pourrez voir vos statistiques de jeu.
-            Si vous n'avez pas encore de compte pour notre jeu, il est possible de rechercher un joueur 
-            par son nom pour voir ses statisques comme ses Pokémons courants, son nombre de victoires, sa division et etc.
-        </p>
-        <p><a class="btn btn-default" href="#">Statistiques &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Galerie</h2>
-        <p>Dans cette section, vous pourrez admirer de multiples photos de notre application, comme les différents pokémons et des captures d'écran du jeu en action!</p>
-        <p><a class="btn btn-default" href="@Url.Action("Galerie")">Galerie &raquo;</a></p>
+<div class="Profile">
+        <div class="jumbotron">
+            <div class="stadium">
+                <h1>Pokémon Stadium Revolution</h1><img style="float:right; width:256px; height:256px;" src="@Url.Content("../../Images/SSB4_-_Pikachu_Artwork.png")" />
+                <p class="lead">Le jeu Pokémon Stadium Revolution est un jeu de combat sur une plateforme. Il ressemble beaucoup à Pokemon Stadium, mais avec quelques éléments qui diffèrent.</p>
+                <p class="lead">
+                    Le but du jeu est de battre tous les Pokémons de l'autre joueur. Pour ce faire, vous devez mettre sur le jeu un Pokémon à la fois.
+                    Chaque Pokémons peut avoir jusqu`à 4 attaques. C'est vous qui décidez quelles attaques vous voulez sur votre Pokémon.
+                </p>
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Pour débuter</h2>
+            <p>
+                L'univers de notre jeu comprend plusieurs informations nécessaires à la bonne compréhension du système de combat.
+                Sur cette page, vous pourrez apprendre sur les différents Pokémons, les différents items et sur les modes de jeu disponibles.
+            </p>
+            <p><a class="btn btn-default" href="@Url.Action("Pokemons")">Pokémons&raquo;</a></p>
+            <p><a class="btn btn-default" href="@Url.Action("Items")">Items&raquo;</a></p>
+            <p><a class="btn btn-default" href="@Url.Action("Attaques")">Attaques&raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Statistiques</h2>
+            <p>
+                Si vous avez un compte, vous pourrez voir vos statistiques de jeu.
+                Si vous n'avez pas encore de compte pour notre jeu, il est possible de rechercher un joueur
+                par son nom pour voir ses statisques comme ses Pokémons courants, son nombre de victoires, sa division et etc.
+            </p>
+            <p><a class="btn btn-default" href="@Url.Action("Statistiques")">Statistiques &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Galerie</h2>
+            <p>Dans cette section, vous pourrez admirer de multiples photos de notre application, comme les différents pokémons et des captures d'écran du jeu en action!</p>
+            <p><a class="btn btn-default" href="@Url.Action("Galerie")">Galerie &raquo;</a></p>
+        </div>
     </div>
 </div>

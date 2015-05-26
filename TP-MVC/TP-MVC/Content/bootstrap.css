@@ -6823,9 +6823,13 @@ td.visible-print {
   }
 }
 
-.logo{
-    background:url(http://localhost:1240/Images/pokemon-header.png);
+.stadium{
     background-size: auto;
+}
+
+
+#img-logo{
+    margin:auto 20%;
 }
 
 .pokThumbnail{
@@ -6843,8 +6847,13 @@ border-radius: 1px 1px 1px 1px;
 box-shadow: 3px 3px 5px 5px #CCCCCC;
 width:auto;
 height: auto;
-padding: 5px;
+padding: 10px;
 position:relative;
+}
+.Index {
+    background: url(http://vignette4.wikia.nocookie.net/fantendo/images/5/51/Pok%C3%A9mon_Stadium_2.jpg/revision/latest?cb=20141221100214);
+    background-size: inherit;
+    opacity: 0.5;
 }
 
 .profile-right{

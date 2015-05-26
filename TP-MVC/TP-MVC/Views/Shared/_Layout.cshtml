@@ -32,8 +32,11 @@
                     </li>
                     <li>@Html.ActionLink("Statistiques", "Statistiques","Home")</li>
                     <li>@Html.ActionLink("Galerie", "Galerie","Home")</li>
-                    <li>@Html.ActionLink("À propos de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (Session["Username"] != null && Session["Username"].ToString() == "Admin")
+                    {
+                        <li>@Html.ActionLink("Modifier/Supprimer Joueurs", "GodRoom", "Home")</li>
+                    }
+                        
                 </ul>
                 <ul class=" nav navbar-nav navbar-right">
                     @if(Session["Username"] == null || Session["Username"] == "")
@@ -43,7 +46,7 @@
                     }
                     else
                     {
-                        <li>@Html.ActionLink(Session["Username"].ToString(),"Statistiques","Home")</li>
+                        <li>@Html.ActionLink(Session["Username"].ToString(),"Update","Home")</li>
                         <li>@Html.ActionLink("Se déconnecter", "Deconnexion", "Home")</li>
                     }
                 </ul>

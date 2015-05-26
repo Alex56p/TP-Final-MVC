@@ -1,19 +1,9 @@
 TO DO LIST:
 
-Pokemon:
-
-Items:
-
 Statistiques:
+-Afficher image de la division
 -Afficher l'admin OP si personne est connecté
 -Rechercher un joueur
-
-Attaques:
-
-Accueil: 
--Le faire plus beau, avec des liens aux pages.
-
-Connexion:
 
 Inscription:
 
@@ -26,5 +16,5 @@ Update:
 Général:
 -Faire que cest des partial views.
 
-
-(Passer le joueur courant en paramètre dans ViewBag.Joueur)
+(Passer les joueurs en paramètre dans ViewBag.Joueurs)
+(Créer l'action Delete avec alias en parametre qui supprimer le joueur)
