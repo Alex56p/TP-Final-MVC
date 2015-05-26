@@ -9,7 +9,6 @@ GodRoom:
 Update:
 
 Galerie:
--Finir la galerie loltits mdr.
 
 Général:
 -Faire que cest des partial views.

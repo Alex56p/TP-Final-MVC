@@ -25,6 +25,13 @@ namespace TP_MVC.Controllers
             return new Pokemon();
         }
 
+        public ActionResult Liste()
+        {
+            Joueur[] j = Donnees.Joueurs.ToArray();
+            ViewBag.Joueurs = j;
+            return PartialView();
+        }
+
 
         #region Pokemons
         [HttpPost]
@@ -175,11 +182,22 @@ namespace TP_MVC.Controllers
         {
             if (TB_Email != null && TB_Password != null && TB_Email != "" && TB_Password != "" && Session["Username"] != null)
             {
-                Joueur j1 = Donnees.Joueurs.Find(Session["Username"].ToString());
-                j1.EMAIL = TB_Email;
-                j1.MOT_PASSE = TB_Password;
-                Donnees.SaveChanges();
-                return RedirectToAction("Index");
+                if (TB_Email.Contains('@') && TB_Email.Contains('.'))
+                {
+                    Joueur j1 = Donnees.Joueurs.Find(Session["Username"].ToString());
+                    j1.EMAIL = TB_Email;
+                    j1.MOT_PASSE = TB_Password;
+                    Donnees.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.Error = "L'email doit être valide.";
+                    String username = Session["Username"].ToString();
+                    Joueur[] j = Donnees.Joueurs.Where(c => c.ALIAS.Equals(username)).ToArray();
+                    ViewBag.Joueur = j;
+                    return View();
+                }
             }
             else
             {
@@ -288,9 +306,16 @@ namespace TP_MVC.Controllers
         #region GodRoom
         public ActionResult GodRoom()
         {
-            Joueur[] j = Donnees.Joueurs.ToArray();
-            ViewBag.Joueurs = j;
-            return View();
+            if(Session["Username"] != null && Session["Username"].ToString() == "Admin")
+            {
+                Joueur[] j = Donnees.Joueurs.ToArray();
+                ViewBag.Joueurs = j;
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
         }
         [HttpPost]
         public ActionResult GodRoom(string TB_Rechercher, string Submit)

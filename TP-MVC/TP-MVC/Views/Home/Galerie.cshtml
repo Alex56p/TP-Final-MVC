@@ -5,7 +5,8 @@
 
 <h2>Galerie</h2>
 @{
-        String[] images = Array.FindAll(Directory.GetFiles("C:/Users/Antho/Desktop/TP-Final-MVC/TP-MVC/TP-MVC/Memes"),x => !x.EndsWith(".db"));
+    String folder = Server.MapPath("~/Images"); ;
+        String[] images = Array.FindAll(Directory.GetFiles(folder),x => !x.EndsWith(".db"));
 }
 
 <div id="myCarousel" class="carousel" data-ride="carousel">
@@ -13,7 +14,14 @@
     <ol class="carousel-indicators">
         @for (int i = 0; i < images.Length; i++)
         {
-            <li data-target="#myCarousel" data-slide-to="i" class="active"></li>
+            if (i == 0)
+            {
+                <li data-target="#myCarousel" data-slide-to="i" class="active"></li>
+            }
+            else
+            {
+                <li data-target="#myCarousel" data-slide-to="i"></li>
+            }
         }
     </ol>
 
@@ -21,13 +29,13 @@
     
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img src="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2014/4/11/1397210130748/Spring-Lamb.-Image-shot-2-011.jpg" alt="@images[0]">
+            <img src="@Url.Content("../../Images/" + Path.GetFileName(images[0]))" alt="@images[0]">
         </div>
 
-        @for (int i = 0; i < images.Length; i++)
+        @for (int i = 1; i < images.Length; i++)
         {
-            <div class="item">
-                <img src="@Url.Content("../../Memes/" + Path.GetFileName(images[i]))" alt="@Path.GetFileNameWithoutExtension(images[i])">
+            <div class ="item">
+                <img class="item" src="@Url.Content("../../Images/" + Path.GetFileName(images[i]))" alt="@Path.GetFileNameWithoutExtension(images[i])">
             </div>
         }
 

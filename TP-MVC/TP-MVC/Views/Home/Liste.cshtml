@@ -1,0 +1,32 @@
+﻿  
+
+<table class="table">
+            <thead>
+                <tr>
+                    <th>Alias</th>
+                    <th>Mot de passe</th>
+                    <th>Division</th>
+                    <th>Email</th>
+                    <th>Victoires</th>
+                    <th>Parties jouées</th>
+                    <th>Exp.</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int i = 0;}
+                @foreach (Joueur a in ViewBag.Joueurs)
+                {
+                    <tr>
+                        <td>@a.ALIAS</td>
+                        <td>@a.MOT_PASSE</td>
+                        <td>@a.DIVISION</td>
+                        <td>@a.EMAIL</td>
+                        <td>@a.NOMBRE_VICTOIRE</td>
+                        <td>@a.NOMBRE_PARTIES_JOUES</td>
+                        <td>@a.EXPERIENCE</td>
+                        <td>@Html.ActionLink("Supprimer", "Delete", new { id = a.ALIAS })</td>
+                    </tr>
+                    i++;
+                }
+            </tbody>
+        </table>

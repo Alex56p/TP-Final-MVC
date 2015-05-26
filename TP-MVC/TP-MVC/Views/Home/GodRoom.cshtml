@@ -1,48 +1,40 @@
 ﻿@{
     ViewBag.Title = "GodRoom";
 }
-
+@Scripts.Render("~/bundles/jquery")
 
 @using (Html.BeginForm())
 {
-    <div class="container">
-        <h2>GodRoom</h2>
-        <div>
-            @Html.Label("Rechercher un joueur par son nom : ")
-            @Html.TextBox("TB_Rechercher")
-            <button type="submit" name="Submit" value="Rechercher">Rechercher</button>
-            <button type="submit" name="Submit" value="Tout">Afficher Tout</button>
-        </div>
-        <p>Tous les joueurs sont ici:</p>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Alias</th>
-                    <th>Mot de passe</th>
-                    <th>Division</th>
-                    <th>Email</th>
-                    <th>Victoires</th>
-                    <th>Parties jouées</th>
-                    <th>Exp.</th>
-                </tr>
-            </thead>
-            <tbody>
-                @{int i = 0;}
-                @foreach (Joueur a in ViewBag.Joueurs)
-                {
-                    <tr>
-                        <td>@a.ALIAS</td>
-                        <td>@a.MOT_PASSE</td>
-                        <td>@a.DIVISION</td>
-                        <td>@a.EMAIL</td>
-                        <td>@a.NOMBRE_VICTOIRE</td>
-                        <td>@a.NOMBRE_PARTIES_JOUES</td>
-                        <td>@a.EXPERIENCE</td>
-                        <td>@Html.ActionLink("Supprimer", "Delete", new{ id = a.ALIAS})</td>
-                    </tr>
-                    i++;
-                }
-            </tbody>
-        </table>
+    
+
+    <h2>GodRoom</h2>
+    <div>
+        @Html.Label("Rechercher un joueur par son nom : ")
+        @Html.TextBox("TB_Rechercher")
+        <button type="submit" name="Submit" value="Rechercher">Rechercher</button>
+        <button type="submit" name="Submit" value="Tout">Afficher Tout</button>
+    </div>
+    <p>Tous les joueurs sont ici:</p>
+    <div id="Liste">
+        @Html.Partial("Liste")
     </div>
 }
+
+<script type="text/javascript">
+    var timer;
+    function ChargeVuePartielle() {
+        $.ajax({
+            url: '@Url.Action("Liste")',
+            type: 'GET',
+            dataType: 'html',
+            success: function (result) {
+                $('#Liste').html(result);
+            }
+        });
+    }
+
+    ChargeVuePartielle();
+    $(function () {
+        timer = window.setInterval("ChargeVuePartielle()", 2000);
+    });
+</script>
