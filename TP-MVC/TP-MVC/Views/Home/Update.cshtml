@@ -24,13 +24,6 @@
                         @foreach(Joueur j in ViewBag.Joueur)
                         {
                             <div class="form-group">
-                                <label for="username" class="col-md-3 control-label">Nom d'usager</label>
-                                <div>
-                                    @Html.TextBox("TB_Username", j.ALIAS, new { @class = "form-control", @placeholder = "Nom d'usager" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
                                 <label for="email" class="col-md-3 control-label">Email</label>
                                 <div>
                                     @Html.TextBox("TB_Email", j.EMAIL, new { @class = "form-control", @placeholder = "Email" })

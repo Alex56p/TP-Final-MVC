@@ -20,19 +20,6 @@ namespace TP_MVC.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page."; 
-            
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-            return View();
-        }
-
         public Pokemon Afficher(int num)
         {
             return new Pokemon();
@@ -184,19 +171,25 @@ namespace TP_MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Update(String TB_Username, String TB_Password, String TB_Email)
+        public ActionResult Update( String TB_Password, String TB_Email)
         {
-            if (TB_Username != null && TB_Email != null && TB_Password != null && TB_Username != "" && TB_Email != "" && TB_Password != "" && Session["Username"] != null)
+            if (TB_Email != null && TB_Password != null && TB_Email != "" && TB_Password != "" && Session["Username"] != null)
             {
-                Joueur j = Donnees.Joueurs.Find(Session["Username"].ToString());
-                j.ALIAS = TB_Username;
-                j.EMAIL = TB_Email;
-                j.MOT_PASSE = TB_Password;
+                Joueur j1 = Donnees.Joueurs.Find(Session["Username"].ToString());
+                j1.EMAIL = TB_Email;
+                j1.MOT_PASSE = TB_Password;
                 Donnees.SaveChanges();
                 return RedirectToAction("Index");
             }
             else
-                return RedirectToAction("Index");
+            {
+                ViewBag.Error = "Veuillez remplir tous les champs.";
+
+                String username = Session["Username"].ToString();
+                Joueur[] j = Donnees.Joueurs.Where(c => c.ALIAS.Equals(username)).ToArray();
+                ViewBag.Joueur = j;
+                return View();
+            }
         }
         #endregion
         #region Statistiques
@@ -290,6 +283,40 @@ namespace TP_MVC.Controllers
         {
             Session.Clear();
             return RedirectToAction("Index");
+        }
+        #endregion
+        #region GodRoom
+        public ActionResult GodRoom()
+        {
+            Joueur[] j = Donnees.Joueurs.ToArray();
+            ViewBag.Joueurs = j;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult GodRoom(string TB_Rechercher, string Submit)
+        {
+            switch (Submit)
+            {
+                case "Rechercher":
+                    Joueur[] j = this.Donnees.Joueurs.Where(c => c.ALIAS.StartsWith(TB_Rechercher)).ToArray();
+                    ViewBag.Joueurs = j;
+                    break;
+                case "Tout":
+                    GodRoom();
+                    break;
+                default:
+                    GodRoom();
+                    break;
+            }
+            return View();
+        }
+
+        public ActionResult Delete(String id)
+        {
+            Joueur j = Donnees.Joueurs.Where(c => c.ALIAS.Equals(id)).FirstOrDefault();
+            Donnees.Joueurs.Remove(j);
+            Donnees.SaveChanges();
+            return RedirectToAction("GodRoom");
         }
         #endregion
     }

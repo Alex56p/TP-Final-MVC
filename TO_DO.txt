@@ -1,20 +1,15 @@
 TO DO LIST:
 
 Statistiques:
--Afficher image de la division
--Afficher l'admin OP si personne est connecté
--Rechercher un joueur
 
 Inscription:
 
-Admin:
--Peut deleter  des  comptes.
+GodRoom:
 
 Update:
--Handle les exceptions
+
+Galerie:
+-Finir la galerie loltits mdr.
 
 Général:
 -Faire que cest des partial views.
-
-(Passer les joueurs en paramètre dans ViewBag.Joueurs)
-(Créer l'action Delete avec alias en parametre qui supprimer le joueur)
