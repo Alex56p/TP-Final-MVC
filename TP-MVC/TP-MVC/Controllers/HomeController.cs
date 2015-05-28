@@ -306,7 +306,7 @@ namespace TP_MVC.Controllers
         #region GodRoom
         public ActionResult GodRoom()
         {
-            if(Session["Username"] != null && Session["Username"].ToString() == "Admin")
+            if(Session["Username"] != null && (Session["Username"].ToString() == "Admin" || Session["Username"].ToString() == "admin"))
             {
                 Joueur[] j = Donnees.Joueurs.ToArray();
                 ViewBag.Joueurs = j;

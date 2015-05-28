@@ -24,7 +24,10 @@
                         <td>@a.NOMBRE_VICTOIRE</td>
                         <td>@a.NOMBRE_PARTIES_JOUES</td>
                         <td>@a.EXPERIENCE</td>
-                        <td>@Html.ActionLink("Supprimer", "Delete", new { id = a.ALIAS })</td>
+                        @if (a.ALIAS != "Admin")
+                        {
+                            <td>@Html.ActionLink("Supprimer", "Delete", new { id = a.ALIAS })</td>
+                        }
                     </tr>
                     i++;
                 }

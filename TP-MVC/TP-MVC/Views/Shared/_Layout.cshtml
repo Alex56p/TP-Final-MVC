@@ -32,7 +32,7 @@
                     </li>
                     <li>@Html.ActionLink("Statistiques", "Statistiques","Home")</li>
                     <li>@Html.ActionLink("Galerie", "Galerie","Home")</li>
-                    @if (Session["Username"] != null && Session["Username"].ToString() == "Admin")
+                    @if (Session["Username"] != null && (Session["Username"].ToString() == "Admin" || Session["Username"].ToString() == "admin"))
                     {
                         <li>@Html.ActionLink("Modifier/Supprimer Joueurs", "GodRoom", "Home")</li>
                     }
